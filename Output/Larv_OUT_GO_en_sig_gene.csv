@@ -1,358 +1,1192 @@
 "","gene_name","GeneOntologyIDs","Term","Annotated","Significant","Expected","Fisher","ontology","prop.sig.genes"
-"1","LOC111099585","GO:0070537","histone H2A K63-linked deubiquitination",2,1,0.02,0.0186,"Biological Processes",0.5
-"2","LOC111099603","GO:0045053","protein retention in Golgi apparatus",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"3","LOC111100413","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"4","LOC111100413","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"5","LOC111100547","GO:0000463","maturation of LSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA)",14,2,0.13,0.0073,"Biological Processes",0.142857142857143
-"6","LOC111100548","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"7","LOC111100548","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"8","LOC111100548","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"9","LOC111100632","GO:0071786","endoplasmic reticulum tubular network organization",4,1,0.04,0.0368,"Biological Processes",0.25
-"10","LOC111100671","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"11","LOC111100671","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"12","LOC111100924","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"13","LOC111100924","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"14","LOC111100924","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"15","LOC111100977","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"16","LOC111100977","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"17","LOC111101112","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"18","LOC111101112","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"19","LOC111101112","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"20","LOC111101860","GO:0002181","cytoplasmic translation",52,3,0.49,0.0126,"Biological Processes",0.0576923076923077
-"21","LOC111104368","GO:0006338","chromatin remodeling",58,3,0.54,0.0169,"Biological Processes",0.0517241379310345
-"22","LOC111107021","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"23","LOC111107021","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"24","LOC111107233","GO:0006910","phagocytosis, recognition",4,1,0.04,0.0368,"Biological Processes",0.25
-"25","LOC111107233","GO:0016046","detection of fungus",4,1,0.04,0.0368,"Biological Processes",0.25
-"26","LOC111107233","GO:0032491","detection of molecule of fungal origin",4,1,0.04,0.0368,"Biological Processes",0.25
-"27","LOC111107233","GO:0050766","positive regulation of phagocytosis",4,1,0.04,0.0368,"Biological Processes",0.25
-"28","LOC111107233","GO:0051712","positive regulation of killing of cells of other organism",4,1,0.04,0.0368,"Biological Processes",0.25
-"29","LOC111107233","GO:0071226","cellular response to molecule of fungal origin",4,1,0.04,0.0368,"Biological Processes",0.25
-"30","LOC111107233","GO:0090303","positive regulation of wound healing",4,1,0.04,0.0368,"Biological Processes",0.25
-"31","LOC111107233","GO:1900017","positive regulation of cytokine production involved in inflammatory response",4,1,0.04,0.0368,"Biological Processes",0.25
-"32","LOC111107786","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"33","LOC111107786","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"34","LOC111108653","GO:0032486","Rap protein signal transduction",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"35","LOC111108653","GO:0032486","Rap protein signal transduction",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"36","LOC111108653","GO:0071320","cellular response to cAMP",2,1,0.02,0.0186,"Biological Processes",0.5
-"37","LOC111108653","GO:2000301","negative regulation of synaptic vesicle exocytosis",2,1,0.02,0.0186,"Biological Processes",0.5
-"38","LOC111109525","GO:0046847","filopodium assembly",4,1,0.04,0.0368,"Biological Processes",0.25
-"39","LOC111114183","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"40","LOC111114183","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"41","LOC111114183","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"42","LOC111114460","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"43","LOC111114460","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"44","LOC111114460","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"45","LOC111117735","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"46","LOC111117735","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"47","LOC111117735","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"48","LOC111117739","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"49","LOC111117739","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"50","LOC111117739","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"51","LOC111117762","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"52","LOC111117762","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"53","LOC111117762","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"54","LOC111117985","GO:0045048","protein insertion into ER membrane",5,1,0.05,0.0458,"Biological Processes",0.2
-"55","LOC111117985","GO:0045048","protein insertion into ER membrane",5,1,0.05,0.0458,"Biological Processes",0.2
-"56","LOC111118137","GO:0032049","cardiolipin biosynthetic process",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"57","LOC111118540","GO:0000028","ribosomal small subunit assembly",13,2,0.12,0.0063,"Biological Processes",0.153846153846154
-"58","LOC111118540","GO:0002181","cytoplasmic translation",52,3,0.49,0.0126,"Biological Processes",0.0576923076923077
-"59","LOC111119576","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"60","LOC111119576","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"61","LOC111121601","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"62","LOC111121601","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"63","LOC111121920","GO:0019264","glycine biosynthetic process from serine",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"64","LOC111121920","GO:0019264","glycine biosynthetic process from serine",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"65","LOC111121920","GO:0046655","folic acid metabolic process",5,1,0.05,0.0458,"Biological Processes",0.2
-"66","LOC111121920","GO:0051289","protein homotetramerization",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"67","LOC111122819","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"68","LOC111122819","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"69","LOC111124992","GO:0045104","intermediate filament cytoskeleton organization",4,1,0.04,0.0368,"Biological Processes",0.25
-"70","LOC111125129","GO:0006265","DNA topological change",4,1,0.04,0.0368,"Biological Processes",0.25
-"71","LOC111125548","GO:0000028","ribosomal small subunit assembly",13,2,0.12,0.0063,"Biological Processes",0.153846153846154
-"72","LOC111125548","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"73","LOC111125548","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"74","LOC111125828","GO:0036158","outer dynein arm assembly",13,2,0.12,0.0063,"Biological Processes",0.153846153846154
-"75","LOC111128116","GO:0000470","maturation of LSU-rRNA",23,4,0.21,0.0029,"Biological Processes",0.173913043478261
-"76","LOC111129161","GO:0006210","thymine catabolic process",2,1,0.02,0.0186,"Biological Processes",0.5
-"77","LOC111129161","GO:0006574","valine catabolic process",4,1,0.04,0.0368,"Biological Processes",0.25
-"78","LOC111129446","GO:0048013","ephrin receptor signaling pathway",1,1,0.01,0.0093,"Biological Processes",1
-"79","LOC111129483","GO:0046928","regulation of neurotransmitter secretion",9,2,0.08,0.0455,"Biological Processes",0.222222222222222
-"80","LOC111129944","GO:0007340","acrosome reaction",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"81","LOC111130240","GO:0006412","translation",636,22,5.93,0.027,"Biological Processes",0.0345911949685535
-"82","LOC111130240","GO:0006424","glutamyl-tRNA aminoacylation",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"83","LOC111130240","GO:0006433","prolyl-tRNA aminoacylation",4,1,0.04,0.0368,"Biological Processes",0.25
-"84","LOC111130240","GO:0006433","prolyl-tRNA aminoacylation",4,1,0.04,0.0368,"Biological Processes",0.25
-"85","LOC111130773","GO:0033234","negative regulation of protein sumoylation",2,1,0.02,0.0186,"Biological Processes",0.5
-"86","LOC111132503","GO:0006338","chromatin remodeling",58,3,0.54,0.0169,"Biological Processes",0.0517241379310345
-"87","LOC111132503","GO:0006338","chromatin remodeling",58,3,0.54,0.0169,"Biological Processes",0.0517241379310345
-"88","LOC111132621","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"89","LOC111132621","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"90","LOC111132621","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"91","LOC111132918","GO:0002181","cytoplasmic translation",52,3,0.49,0.0126,"Biological Processes",0.0576923076923077
-"92","LOC111133070","GO:0042407","cristae formation",4,1,0.04,0.0368,"Biological Processes",0.25
-"93","LOC111133277","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"94","LOC111133277","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"95","LOC111133281","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"96","LOC111133281","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"97","LOC111133281","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"98","LOC111133291","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"99","LOC111133291","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"100","LOC111133291","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"101","LOC111133298","GO:0000209","protein polyubiquitination",544,18,5.08,3.1e-06,"Biological Processes",0.0330882352941176
-"102","LOC111133298","GO:0017148","negative regulation of translation",250,12,2.33,3.9e-06,"Biological Processes",0.048
-"103","LOC111133298","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,18,6.11,3.8e-05,"Biological Processes",0.0274809160305344
-"104","LOC111134321","GO:0036158","outer dynein arm assembly",13,2,0.12,0.0063,"Biological Processes",0.153846153846154
-"105","LOC111134386","GO:0015874","norepinephrine transport",2,1,0.02,0.0186,"Biological Processes",0.5
-"106","LOC111134386","GO:0051583","dopamine uptake involved in synaptic transmission",2,1,0.02,0.0186,"Biological Processes",0.5
-"107","LOC111135173","GO:0006679","glucosylceramide biosynthetic process",3,1,0.03,0.0277,"Biological Processes",0.333333333333333
-"108","LOC111135192","GO:0033353","S-adenosylmethionine cycle",4,1,0.04,0.0368,"Biological Processes",0.25
-"109","LOC111136084","GO:0006338","chromatin remodeling",58,3,0.54,0.0169,"Biological Processes",0.0517241379310345
-"110","LOC111136084","GO:0006338","chromatin remodeling",58,3,0.54,0.0169,"Biological Processes",0.0517241379310345
-"111","LOC111136820","GO:0000470","maturation of LSU-rRNA",23,4,0.21,0.0029,"Biological Processes",0.173913043478261
-"112","LOC111137679","GO:0000463","maturation of LSU-rRNA from tricistronic rRNA transcript (SSU-rRNA, 5.8S rRNA, LSU-rRNA)",14,2,0.13,0.0073,"Biological Processes",0.142857142857143
-"113","LOC111099585","GO:0070552","BRISC complex",5,1,0.05,0.048,"Cellular Components",0.2
-"114","LOC111099585","GO:0070552","BRISC complex",5,1,0.05,0.048,"Cellular Components",0.2
-"115","LOC111100344","GO:0016459","myosin complex",58,4,0.57,0.0055,"Cellular Components",0.0689655172413793
-"116","LOC111100402","GO:0005876","spindle microtubule",63,3,0.62,0.02377,"Cellular Components",0.0476190476190476
-"117","LOC111100547","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"118","LOC111100906","GO:0008275","gamma-tubulin small complex",3,1,0.03,0.02908,"Cellular Components",0.333333333333333
-"119","LOC111101860","GO:0022625","cytosolic large ribosomal subunit",49,4,0.48,0.00132,"Cellular Components",0.0816326530612245
-"120","LOC111102673","GO:0000974","Prp19 complex",12,2,0.12,0.00589,"Cellular Components",0.166666666666667
-"121","LOC111102673","GO:0071013","catalytic step 2 spliceosome",61,3,0.6,0.02185,"Cellular Components",0.0491803278688525
-"122","LOC111103428","GO:0005876","spindle microtubule",63,3,0.62,0.02377,"Cellular Components",0.0476190476190476
-"123","LOC111103631","GO:0005876","spindle microtubule",63,3,0.62,0.02377,"Cellular Components",0.0476190476190476
-"124","LOC111104368","GO:0035060","brahma complex",2,1,0.02,0.01948,"Cellular Components",0.5
-"125","LOC111104368","GO:0071565","nBAF complex",4,1,0.04,0.03859,"Cellular Components",0.25
-"126","LOC111107094","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"127","LOC111107343","GO:0022627","cytosolic small ribosomal subunit",35,4,0.34,0.00036,"Cellular Components",0.114285714285714
-"128","LOC111107747","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"129","LOC111108040","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"130","LOC111108041","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"131","LOC111108043","GO:0005844","polysome",12,2,0.12,0.00589,"Cellular Components",0.166666666666667
-"132","LOC111113163","GO:0005923","bicellular tight junction",2,1,0.02,0.01948,"Cellular Components",0.5
-"133","LOC111114914","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"134","LOC111117985","GO:0071818","BAT3 complex",2,1,0.02,0.01948,"Cellular Components",0.5
-"135","LOC111118540","GO:0022627","cytosolic small ribosomal subunit",35,4,0.34,0.00036,"Cellular Components",0.114285714285714
-"136","LOC111119386","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"137","LOC111119695","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"138","LOC111119695","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"139","LOC111121601","GO:0022625","cytosolic large ribosomal subunit",49,4,0.48,0.00132,"Cellular Components",0.0816326530612245
-"140","LOC111122819","GO:0022625","cytosolic large ribosomal subunit",49,4,0.48,0.00132,"Cellular Components",0.0816326530612245
-"141","LOC111123493","GO:0016459","myosin complex",58,4,0.57,0.0055,"Cellular Components",0.0689655172413793
-"142","LOC111123867","GO:0022627","cytosolic small ribosomal subunit",35,4,0.34,0.00036,"Cellular Components",0.114285714285714
-"143","LOC111124992","GO:0005882","intermediate filament",5,1,0.05,0.048,"Cellular Components",0.2
-"144","LOC111125438","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"145","LOC111125548","GO:0022627","cytosolic small ribosomal subunit",35,4,0.34,0.00036,"Cellular Components",0.114285714285714
-"146","LOC111125605","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"147","LOC111126234","GO:0000974","Prp19 complex",12,2,0.12,0.00589,"Cellular Components",0.166666666666667
-"148","LOC111126234","GO:0071013","catalytic step 2 spliceosome",61,3,0.6,0.02185,"Cellular Components",0.0491803278688525
-"149","LOC111128116","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"150","LOC111130552","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"151","LOC111131272","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"152","LOC111131654","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"153","LOC111131654","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"154","LOC111132503","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"155","LOC111133070","GO:0061617","MICOS complex",5,1,0.05,0.048,"Cellular Components",0.2
-"156","LOC111134386","GO:0032809","neuronal cell body membrane",3,1,0.03,0.02908,"Cellular Components",0.333333333333333
-"157","LOC111135118","GO:0000439","transcription factor TFIIH core complex",5,1,0.05,0.048,"Cellular Components",0.2
-"158","LOC111135345","GO:0022625","cytosolic large ribosomal subunit",49,4,0.48,0.00132,"Cellular Components",0.0816326530612245
-"159","LOC111135345","GO:0022625","cytosolic large ribosomal subunit",49,4,0.48,0.00132,"Cellular Components",0.0816326530612245
-"160","LOC111135433","GO:0005844","polysome",12,2,0.12,0.00589,"Cellular Components",0.166666666666667
-"161","LOC111135509","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"162","LOC111136084","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"163","LOC111136109","GO:0016459","myosin complex",58,4,0.57,0.0055,"Cellular Components",0.0689655172413793
-"164","LOC111136504","GO:0045272","plasma membrane respiratory chain complex I",4,1,0.04,0.03859,"Cellular Components",0.25
-"165","LOC111136820","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"166","LOC111136994","GO:0000785","chromatin",677,13,6.63,0.01747,"Cellular Components",0.0192023633677991
-"167","LOC111137383","GO:0071013","catalytic step 2 spliceosome",61,3,0.6,0.02185,"Cellular Components",0.0491803278688525
-"168","LOC111137679","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"169","LOC111137679","GO:0005730","nucleolus",181,9,1.77,4e-05,"Cellular Components",0.0497237569060773
-"170","LOC111137679","GO:0070545","PeBoW complex",2,1,0.02,0.01948,"Cellular Components",0.5
-"171","LOC111137772","GO:0000276","mitochondrial proton-transporting ATP synthase complex, coupling factor F(o)",5,1,0.05,0.048,"Cellular Components",0.2
-"172","LOC111100092","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"173","LOC111100344","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"174","LOC111100403","GO:0003729","mRNA binding",160,5,1.41,0.0479,"Molecular Functions",0.03125
-"175","LOC111100403","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"176","LOC111100413","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"177","LOC111100413","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"178","LOC111100426","GO:0003729","mRNA binding",160,5,1.41,0.0479,"Molecular Functions",0.03125
-"179","LOC111100547","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"180","LOC111100548","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"181","LOC111100548","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"182","LOC111100548","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"183","LOC111100562","GO:0004658","propionyl-CoA carboxylase activity",2,2,0.02,7.7e-05,"Molecular Functions",1
-"184","LOC111100562","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"185","LOC111100562","GO:0046872","metal ion binding",3567,54,31.48,0.0395,"Molecular Functions",0.0151387720773759
-"186","LOC111100632","GO:0008017","microtubule binding",158,5,1.39,0.0408,"Molecular Functions",0.0316455696202532
-"187","LOC111100671","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"188","LOC111100671","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"189","LOC111100885","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"190","LOC111100924","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"191","LOC111100924","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"192","LOC111100924","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"193","LOC111100977","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"194","LOC111100977","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"195","LOC111101025","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"196","LOC111101025","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"197","LOC111101112","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"198","LOC111101112","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"199","LOC111101112","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"200","LOC111101136","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"201","LOC111101860","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"202","LOC111101860","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"203","LOC111103560","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"204","LOC111103778","GO:0004709","MAP kinase kinase kinase activity",4,1,0.04,0.0348,"Molecular Functions",0.25
-"205","LOC111103778","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"206","LOC111104061","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"207","LOC111106170","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"208","LOC111106648","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"209","LOC111106648","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"210","LOC111106648","GO:0035299","inositol pentakisphosphate 2-kinase activity",1,1,0.01,0.0088,"Molecular Functions",1
-"211","LOC111106648","GO:0035299","inositol pentakisphosphate 2-kinase activity",1,1,0.01,0.0088,"Molecular Functions",1
-"212","LOC111107021","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"213","LOC111107021","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"214","LOC111107094","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"215","LOC111107094","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"216","LOC111107233","GO:0001872","(1->3)-beta-D-glucan binding",4,1,0.04,0.0348,"Molecular Functions",0.25
-"217","LOC111107343","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"218","LOC111107343","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"219","LOC111107747","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"220","LOC111107747","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"221","LOC111107786","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"222","LOC111107786","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"223","LOC111108040","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"224","LOC111108040","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"225","LOC111108041","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"226","LOC111108041","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"227","LOC111108043","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"228","LOC111109197","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"229","LOC111109634","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"230","LOC111110081","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"231","LOC111111442","GO:0050291","sphingosine N-acyltransferase activity",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"232","LOC111111442","GO:0050291","sphingosine N-acyltransferase activity",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"233","LOC111111479","GO:0030552","cAMP binding",4,1,0.04,0.0348,"Molecular Functions",0.25
-"234","LOC111114183","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"235","LOC111114183","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"236","LOC111114460","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"237","LOC111114460","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"238","LOC111114680","GO:0016929","SUMO-specific protease activity",4,1,0.04,0.0348,"Molecular Functions",0.25
-"239","LOC111114914","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"240","LOC111114914","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"241","LOC111115508","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"242","LOC111115508","GO:0008017","microtubule binding",158,5,1.39,0.0408,"Molecular Functions",0.0316455696202532
-"243","LOC111117356","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"244","LOC111117607","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"245","LOC111117646","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"246","LOC111117647","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"247","LOC111117735","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"248","LOC111117735","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"249","LOC111117735","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"250","LOC111117736","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"251","LOC111117739","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"252","LOC111117739","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"253","LOC111117739","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"254","LOC111117762","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"255","LOC111117762","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"256","LOC111118137","GO:0008444","CDP-diacylglycerol-glycerol-3-phosphate 3-phosphatidyltransferase activity",1,1,0.01,0.0088,"Molecular Functions",1
-"257","LOC111118540","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"258","LOC111118540","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"259","LOC111119383","GO:0046872","metal ion binding",3567,54,31.48,0.0395,"Molecular Functions",0.0151387720773759
-"260","LOC111119386","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"261","LOC111119386","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"262","LOC111119459","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"263","LOC111119459","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"264","LOC111119576","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"265","LOC111119576","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"266","LOC111120188","GO:0019786","Atg8-specific protease activity",2,1,0.02,0.0176,"Molecular Functions",0.5
-"267","LOC111121601","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"268","LOC111121601","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"269","LOC111121601","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"270","LOC111121920","GO:0004372","glycine hydroxymethyltransferase activity",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"271","LOC111121920","GO:0004372","glycine hydroxymethyltransferase activity",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"272","LOC111121920","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"273","LOC111121920","GO:0048027","mRNA 5'-UTR binding",5,1,0.04,0.0434,"Molecular Functions",0.2
-"274","LOC111121920","GO:0050897","cobalt ion binding",4,1,0.04,0.0348,"Molecular Functions",0.25
-"275","LOC111121920","GO:0070905","serine binding",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"276","LOC111121925","GO:0048487","beta-tubulin binding",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"277","LOC111122819","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"278","LOC111122819","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"279","LOC111123493","GO:0003774","motor activity",110,5,0.97,0.0184,"Molecular Functions",0.0454545454545455
-"280","LOC111123493","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"281","LOC111123867","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"282","LOC111124992","GO:0008017","microtubule binding",158,5,1.39,0.0408,"Molecular Functions",0.0316455696202532
-"283","LOC111125129","GO:0003918","DNA topoisomerase type II (ATP-hydrolyzing) activity",2,1,0.02,0.0176,"Molecular Functions",0.5
-"284","LOC111125129","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"285","LOC111125249","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"286","LOC111125548","GO:0003729","mRNA binding",160,5,1.41,0.0479,"Molecular Functions",0.03125
-"287","LOC111125548","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"288","LOC111125548","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"289","LOC111125605","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"290","LOC111125605","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"291","LOC111127870","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"292","LOC111128006","GO:0008241","peptidyl-dipeptidase activity",4,1,0.04,0.0348,"Molecular Functions",0.25
-"293","LOC111128006","GO:0008241","peptidyl-dipeptidase activity",4,1,0.04,0.0348,"Molecular Functions",0.25
-"294","LOC111129056","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"295","LOC111129161","GO:0004491","methylmalonate-semialdehyde dehydrogenase (acylating) activity",1,1,0.01,0.0088,"Molecular Functions",1
-"296","LOC111129161","GO:0004491","methylmalonate-semialdehyde dehydrogenase (acylating) activity",1,1,0.01,0.0088,"Molecular Functions",1
-"297","LOC111129161","GO:0018478","malonate-semialdehyde dehydrogenase (acetylating) activity",1,1,0.01,0.0088,"Molecular Functions",1
-"298","LOC111129446","GO:0046875","ephrin receptor binding",1,1,0.01,0.0088,"Molecular Functions",1
-"299","LOC111129536","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"300","LOC111129536","GO:0046872","metal ion binding",3567,54,31.48,0.0395,"Molecular Functions",0.0151387720773759
-"301","LOC111129561","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"302","LOC111129561","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"303","LOC111130240","GO:0004818","glutamate-tRNA ligase activity",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"304","LOC111130240","GO:0004827","proline-tRNA ligase activity",4,1,0.04,0.0348,"Molecular Functions",0.25
-"305","LOC111130240","GO:0004827","proline-tRNA ligase activity",4,1,0.04,0.0348,"Molecular Functions",0.25
-"306","LOC111130240","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"307","LOC111130240","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"308","LOC111130552","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"309","LOC111130939","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"310","LOC111130939","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"311","LOC111131530","GO:0004034","aldose 1-epimerase activity",5,1,0.04,0.0434,"Molecular Functions",0.2
-"312","LOC111131538","GO:0001784","phosphotyrosine residue binding",2,1,0.02,0.0176,"Molecular Functions",0.5
-"313","LOC111131654","GO:0005527","macrolide binding",1,1,0.01,0.0088,"Molecular Functions",1
-"314","LOC111132362","GO:0003729","mRNA binding",160,5,1.41,0.0479,"Molecular Functions",0.03125
-"315","LOC111132621","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"316","LOC111132621","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"317","LOC111133277","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"318","LOC111133277","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"319","LOC111133280","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"320","LOC111133281","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"321","LOC111133281","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"322","LOC111133281","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"323","LOC111133291","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"324","LOC111133291","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"325","LOC111133291","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"326","LOC111133292","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"327","LOC111133298","GO:0030371","translation repressor activity",233,13,2.06,8.1e-07,"Molecular Functions",0.055793991416309
-"328","LOC111133298","GO:0061630","ubiquitin protein ligase activity",601,19,5.3,1.6e-06,"Molecular Functions",0.0316139767054908
-"329","LOC111134386","GO:0005330","dopamine:sodium symporter activity",2,1,0.02,0.0176,"Molecular Functions",0.5
-"330","LOC111134559","GO:0004658","propionyl-CoA carboxylase activity",2,2,0.02,7.7e-05,"Molecular Functions",1
-"331","LOC111135061","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"332","LOC111135061","GO:0046872","metal ion binding",3567,54,31.48,0.0395,"Molecular Functions",0.0151387720773759
-"333","LOC111135173","GO:0008120","ceramide glucosyltransferase activity",3,1,0.03,0.0262,"Molecular Functions",0.333333333333333
-"334","LOC111135192","GO:0004013","adenosylhomocysteinase activity",2,1,0.02,0.0176,"Molecular Functions",0.5
-"335","LOC111135345","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"336","LOC111135345","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"337","LOC111135345","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"338","LOC111135345","GO:0003735","structural constituent of ribosome",174,10,1.54,3.4e-06,"Molecular Functions",0.0574712643678161
-"339","LOC111135433","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"340","LOC111135509","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"341","LOC111135509","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"342","LOC111135550","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"343","LOC111135550","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"344","LOC111136084","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"345","LOC111136109","GO:0003774","motor activity",110,5,0.97,0.0184,"Molecular Functions",0.0454545454545455
-"346","LOC111136109","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"347","LOC111136820","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"348","LOC111136820","GO:0009383","rRNA (cytosine-C5-)-methyltransferase activity",1,1,0.01,0.0088,"Molecular Functions",1
-"349","LOC111136994","GO:0004842","ubiquitin-protein transferase activity",1214,30,10.71,0.0114,"Molecular Functions",0.0247116968698517
-"350","LOC111136994","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"351","LOC111137383","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"352","LOC111137383","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"353","LOC111137383","GO:0008270","zinc ion binding",2113,38,18.65,1.4e-05,"Molecular Functions",0.0179839091339328
-"354","LOC111137467","GO:0005524","ATP binding",1286,20,11.35,0.0097,"Molecular Functions",0.015552099533437
-"355","LOC111137679","GO:0003723","RNA binding",833,19,7.35,0.0014,"Molecular Functions",0.0228091236494598
-"356","LOC111138191","GO:0046872","metal ion binding",3567,54,31.48,0.0395,"Molecular Functions",0.0151387720773759
-"357","LOC111138334","GO:0008017","microtubule binding",158,5,1.39,0.0408,"Molecular Functions",0.0316455696202532
+"1","LOC111099603","GO:0006623","protein targeting to vacuole",21,4,0.84,0.00884,"Biological Processes",0.19047619047619
+"2","LOC111099657","GO:0006086","acetyl-CoA biosynthetic process from pyruvate",4,2,0.16,0.0091,"Biological Processes",0.5
+"3","LOC111100355","GO:0002184","cytoplasmic translational termination",1,1,0.04,0.04003,"Biological Processes",1
+"4","LOC111100413","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"5","LOC111100413","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"6","LOC111100548","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"7","LOC111100548","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"8","LOC111100548","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"9","LOC111100582","GO:0033169","histone H3-K9 demethylation",1,1,0.04,0.04003,"Biological Processes",1
+"10","LOC111100671","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"11","LOC111100671","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"12","LOC111100765","GO:0045104","intermediate filament cytoskeleton organization",4,2,0.16,0.0091,"Biological Processes",0.5
+"13","LOC111100768","GO:1901006","ubiquinone-6 biosynthetic process",1,1,0.04,0.04003,"Biological Processes",1
+"14","LOC111100924","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"15","LOC111100924","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"16","LOC111100924","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"17","LOC111100946","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"18","LOC111100946","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"19","LOC111100977","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"20","LOC111100977","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"21","LOC111101040","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"22","LOC111101040","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"23","LOC111101040","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"24","LOC111101112","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"25","LOC111101112","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"26","LOC111101112","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"27","LOC111101725","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"28","LOC111101725","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"29","LOC111101817","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"30","LOC111101817","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"31","LOC111101852","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"32","LOC111101852","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"33","LOC111101853","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"34","LOC111101853","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"35","LOC111101853","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"36","LOC111101860","GO:0042273","ribosomal large subunit biogenesis",58,14,2.32,2e-06,"Biological Processes",0.241379310344828
+"37","LOC111102426","GO:0000381","regulation of alternative mRNA splicing, via spliceosome",16,5,0.64,0.00031,"Biological Processes",0.3125
+"38","LOC111102426","GO:0006376","mRNA splice site selection",13,5,0.52,0.00044,"Biological Processes",0.384615384615385
+"39","LOC111102683","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"40","LOC111102683","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"41","LOC111103765","GO:0050821","protein stabilization",11,3,0.44,0.00828,"Biological Processes",0.272727272727273
+"42","LOC111104368","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"43","LOC111104380","GO:0042274","ribosomal small subunit biogenesis",71,8,2.84,0.02132,"Biological Processes",0.112676056338028
+"44","LOC111104407","GO:0006880","intracellular sequestering of iron ion",4,2,0.16,0.0091,"Biological Processes",0.5
+"45","LOC111104490","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"46","LOC111104490","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"47","LOC111104490","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"48","LOC111104688","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"49","LOC111105476","GO:0051045","negative regulation of membrane protein ectodomain proteolysis",34,4,1.36,0.04561,"Biological Processes",0.117647058823529
+"50","LOC111105616","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"51","LOC111105616","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"52","LOC111105834","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"53","LOC111105845","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"54","LOC111105845","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"55","LOC111106458","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"56","LOC111106879","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"57","LOC111106879","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"58","LOC111107021","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"59","LOC111107021","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"60","LOC111107274","GO:1990547","mitochondrial phosphate ion transmembrane transport",1,1,0.04,0.04003,"Biological Processes",1
+"61","LOC111107786","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"62","LOC111107786","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"63","LOC111107816","GO:0033211","adiponectin-activated signaling pathway",1,1,0.04,0.04003,"Biological Processes",1
+"64","LOC111107875","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"65","LOC111107875","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"66","LOC111107875","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"67","LOC111107933","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"68","LOC111107933","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"69","LOC111107933","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"70","LOC111108200","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"71","LOC111108202","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"72","LOC111108202","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"73","LOC111108653","GO:0032486","Rap protein signal transduction",3,2,0.12,0.00467,"Biological Processes",0.666666666666667
+"74","LOC111108653","GO:0032486","Rap protein signal transduction",3,2,0.12,0.00467,"Biological Processes",0.666666666666667
+"75","LOC111108653","GO:0071320","cellular response to cAMP",2,2,0.08,0.0016,"Biological Processes",1
+"76","LOC111108653","GO:2000301","negative regulation of synaptic vesicle exocytosis",2,2,0.08,0.0016,"Biological Processes",1
+"77","LOC111108725","GO:0051045","negative regulation of membrane protein ectodomain proteolysis",34,4,1.36,0.04561,"Biological Processes",0.117647058823529
+"78","LOC111109639","GO:0000387","spliceosomal snRNP assembly",29,4,1.16,0.02728,"Biological Processes",0.137931034482759
+"79","LOC111110549","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"80","LOC111110549","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"81","LOC111110549","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"82","LOC111110601","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"83","LOC111110733","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"84","LOC111110733","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"85","LOC111110868","GO:0043113","receptor clustering",4,2,0.16,0.0091,"Biological Processes",0.5
+"86","LOC111111438","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"87","LOC111111438","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"88","LOC111111461","GO:0051045","negative regulation of membrane protein ectodomain proteolysis",34,4,1.36,0.04561,"Biological Processes",0.117647058823529
+"89","LOC111111599","GO:0000381","regulation of alternative mRNA splicing, via spliceosome",16,5,0.64,0.00031,"Biological Processes",0.3125
+"90","LOC111111599","GO:0006376","mRNA splice site selection",13,5,0.52,0.00044,"Biological Processes",0.384615384615385
+"91","LOC111112304","GO:0006509","membrane protein ectodomain proteolysis",54,8,2.16,0.00727,"Biological Processes",0.148148148148148
+"92","LOC111112645","GO:0006122","mitochondrial electron transport, ubiquinol to cytochrome c",8,2,0.32,0.03816,"Biological Processes",0.25
+"93","LOC111112645","GO:0006123","mitochondrial electron transport, cytochrome c to oxygen",7,3,0.28,0.00198,"Biological Processes",0.428571428571429
+"94","LOC111113124","GO:0006623","protein targeting to vacuole",21,4,0.84,0.00884,"Biological Processes",0.19047619047619
+"95","LOC111113124","GO:0034058","endosomal vesicle fusion",5,2,0.2,0.01476,"Biological Processes",0.4
+"96","LOC111113124","GO:0034058","endosomal vesicle fusion",5,2,0.2,0.01476,"Biological Processes",0.4
+"97","LOC111113163","GO:0045216","cell-cell junction organization",9,3,0.36,0.0016,"Biological Processes",0.333333333333333
+"98","LOC111113296","GO:1904684","negative regulation of metalloendopeptidase activity",1,1,0.04,0.04003,"Biological Processes",1
+"99","LOC111114183","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"100","LOC111114183","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"101","LOC111114183","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"102","LOC111114460","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"103","LOC111114460","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"104","LOC111114460","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"105","LOC111115040","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"106","LOC111115588","GO:0051045","negative regulation of membrane protein ectodomain proteolysis",34,4,1.36,0.04561,"Biological Processes",0.117647058823529
+"107","LOC111116974","GO:0032780","negative regulation of ATPase activity",1,1,0.04,0.04003,"Biological Processes",1
+"108","LOC111117423","GO:0006509","membrane protein ectodomain proteolysis",54,8,2.16,0.00727,"Biological Processes",0.148148148148148
+"109","LOC111117731","GO:0006509","membrane protein ectodomain proteolysis",54,8,2.16,0.00727,"Biological Processes",0.148148148148148
+"110","LOC111117735","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"111","LOC111117735","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"112","LOC111117735","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"113","LOC111117739","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"114","LOC111117739","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"115","LOC111117739","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"116","LOC111117740","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"117","LOC111117740","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"118","LOC111117740","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"119","LOC111117749","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"120","LOC111117749","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"121","LOC111117749","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"122","LOC111117762","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"123","LOC111117762","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"124","LOC111117762","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"125","LOC111118435","GO:0032956","regulation of actin cytoskeleton organization",75,8,3,0.02133,"Biological Processes",0.106666666666667
+"126","LOC111119568","GO:0002092","positive regulation of receptor internalization",1,1,0.04,0.04003,"Biological Processes",1
+"127","LOC111119568","GO:0043113","receptor clustering",4,2,0.16,0.0091,"Biological Processes",0.5
+"128","LOC111119568","GO:0097062","dendritic spine maintenance",1,1,0.04,0.04003,"Biological Processes",1
+"129","LOC111119576","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"130","LOC111119576","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"131","LOC111119662","GO:0050821","protein stabilization",11,3,0.44,0.00828,"Biological Processes",0.272727272727273
+"132","LOC111119745","GO:0000027","ribosomal large subunit assembly",19,3,0.76,0.03836,"Biological Processes",0.157894736842105
+"133","LOC111119745","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"134","LOC111119745","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"135","LOC111120087","GO:0042273","ribosomal large subunit biogenesis",58,14,2.32,2e-06,"Biological Processes",0.241379310344828
+"136","LOC111120662","GO:0072344","rescue of stalled ribosome",6,3,0.24,0.00117,"Biological Processes",0.5
+"137","LOC111120664","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"138","LOC111120897","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"139","LOC111120952","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"140","LOC111121005","GO:0048203","vesicle targeting, trans-Golgi to endosome",1,1,0.04,0.04003,"Biological Processes",1
+"141","LOC111121005","GO:0048203","vesicle targeting, trans-Golgi to endosome",1,1,0.04,0.04003,"Biological Processes",1
+"142","LOC111121210","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"143","LOC111121370","GO:0072344","rescue of stalled ribosome",6,3,0.24,0.00117,"Biological Processes",0.5
+"144","LOC111121380","GO:0033539","fatty acid beta-oxidation using acyl-CoA dehydrogenase",5,2,0.2,0.01476,"Biological Processes",0.4
+"145","LOC111121601","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"146","LOC111121601","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"147","LOC111121712","GO:0032956","regulation of actin cytoskeleton organization",75,8,3,0.02133,"Biological Processes",0.106666666666667
+"148","LOC111121745","GO:0006376","mRNA splice site selection",13,5,0.52,0.00044,"Biological Processes",0.384615384615385
+"149","LOC111121745","GO:0006376","mRNA splice site selection",13,5,0.52,0.00044,"Biological Processes",0.384615384615385
+"150","LOC111122316","GO:0036371","protein localization to T-tubule",1,1,0.04,0.04003,"Biological Processes",1
+"151","LOC111122316","GO:0055117","regulation of cardiac muscle contraction",1,1,0.04,0.04003,"Biological Processes",1
+"152","LOC111122437","GO:0000381","regulation of alternative mRNA splicing, via spliceosome",16,5,0.64,0.00031,"Biological Processes",0.3125
+"153","LOC111123188","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"154","LOC111123188","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"155","LOC111123735","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"156","LOC111123994","GO:0010608","posttranscriptional regulation of gene expression",379,31,15.17,0.039,"Biological Processes",0.0817941952506596
+"157","LOC111124014","GO:0006623","protein targeting to vacuole",21,4,0.84,0.00884,"Biological Processes",0.19047619047619
+"158","LOC111124014","GO:0034058","endosomal vesicle fusion",5,2,0.2,0.01476,"Biological Processes",0.4
+"159","LOC111124236","GO:0009097","isoleucine biosynthetic process",1,1,0.04,0.04003,"Biological Processes",1
+"160","LOC111124639","GO:0006086","acetyl-CoA biosynthetic process from pyruvate",4,2,0.16,0.0091,"Biological Processes",0.5
+"161","LOC111124861","GO:0000387","spliceosomal snRNP assembly",29,4,1.16,0.02728,"Biological Processes",0.137931034482759
+"162","LOC111124861","GO:0000387","spliceosomal snRNP assembly",29,4,1.16,0.02728,"Biological Processes",0.137931034482759
+"163","LOC111124992","GO:0045104","intermediate filament cytoskeleton organization",4,2,0.16,0.0091,"Biological Processes",0.5
+"164","LOC111125129","GO:0000819","sister chromatid segregation",59,3,2.36,0.04005,"Biological Processes",0.0508474576271186
+"165","LOC111125150","GO:0006509","membrane protein ectodomain proteolysis",54,8,2.16,0.00727,"Biological Processes",0.148148148148148
+"166","LOC111125315","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"167","LOC111125548","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"168","LOC111125548","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"169","LOC111126128","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"170","LOC111126209","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"171","LOC111126209","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"172","LOC111126210","GO:0090266","regulation of mitotic cell cycle spindle assembly checkpoint",1,1,0.04,0.04003,"Biological Processes",1
+"173","LOC111126210","GO:0090266","regulation of mitotic cell cycle spindle assembly checkpoint",1,1,0.04,0.04003,"Biological Processes",1
+"174","LOC111126280","GO:0042273","ribosomal large subunit biogenesis",58,14,2.32,2e-06,"Biological Processes",0.241379310344828
+"175","LOC111126280","GO:0042274","ribosomal small subunit biogenesis",71,8,2.84,0.02132,"Biological Processes",0.112676056338028
+"176","LOC111126281","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"177","LOC111126883","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"178","LOC111126883","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"179","LOC111127562","GO:0019310","inositol catabolic process",1,1,0.04,0.04003,"Biological Processes",1
+"180","LOC111127562","GO:0019310","inositol catabolic process",1,1,0.04,0.04003,"Biological Processes",1
+"181","LOC111128116","GO:0000470","maturation of LSU-rRNA",23,4,0.92,0.04757,"Biological Processes",0.173913043478261
+"182","LOC111128971","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"183","LOC111128971","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"184","LOC111129065","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"185","LOC111129112","GO:0000381","regulation of alternative mRNA splicing, via spliceosome",16,5,0.64,0.00031,"Biological Processes",0.3125
+"186","LOC111129410","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"187","LOC111129410","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"188","LOC111129496","GO:0000387","spliceosomal snRNP assembly",29,4,1.16,0.02728,"Biological Processes",0.137931034482759
+"189","LOC111129841","GO:0050821","protein stabilization",11,3,0.44,0.00828,"Biological Processes",0.272727272727273
+"190","LOC111129950","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"191","LOC111130023","GO:0072344","rescue of stalled ribosome",6,3,0.24,0.00117,"Biological Processes",0.5
+"192","LOC111130039","GO:0000027","ribosomal large subunit assembly",19,3,0.76,0.03836,"Biological Processes",0.157894736842105
+"193","LOC111130240","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"194","LOC111130300","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"195","LOC111130521","GO:0006123","mitochondrial electron transport, cytochrome c to oxygen",7,3,0.28,0.00198,"Biological Processes",0.428571428571429
+"196","LOC111130521","GO:0006123","mitochondrial electron transport, cytochrome c to oxygen",7,3,0.28,0.00198,"Biological Processes",0.428571428571429
+"197","LOC111130572","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"198","LOC111131404","GO:0000481","maturation of 5S rRNA",1,1,0.04,0.04003,"Biological Processes",1
+"199","LOC111131549","GO:1900364","negative regulation of mRNA polyadenylation",1,1,0.04,0.04003,"Biological Processes",1
+"200","LOC111131668","GO:0042273","ribosomal large subunit biogenesis",58,14,2.32,2e-06,"Biological Processes",0.241379310344828
+"201","LOC111132066","GO:0006122","mitochondrial electron transport, ubiquinol to cytochrome c",8,2,0.32,0.03816,"Biological Processes",0.25
+"202","LOC111132147","GO:0032486","Rap protein signal transduction",3,2,0.12,0.00467,"Biological Processes",0.666666666666667
+"203","LOC111132147","GO:0032486","Rap protein signal transduction",3,2,0.12,0.00467,"Biological Processes",0.666666666666667
+"204","LOC111132147","GO:0071320","cellular response to cAMP",2,2,0.08,0.0016,"Biological Processes",1
+"205","LOC111132147","GO:2000301","negative regulation of synaptic vesicle exocytosis",2,2,0.08,0.0016,"Biological Processes",1
+"206","LOC111132160","GO:0070370","cellular heat acclimation",1,1,0.04,0.04003,"Biological Processes",1
+"207","LOC111132621","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"208","LOC111132621","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"209","LOC111132621","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"210","LOC111132762","GO:0006123","mitochondrial electron transport, cytochrome c to oxygen",7,3,0.28,0.00198,"Biological Processes",0.428571428571429
+"211","LOC111133277","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"212","LOC111133277","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"213","LOC111133281","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"214","LOC111133281","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"215","LOC111133281","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"216","LOC111133288","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"217","LOC111133288","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"218","LOC111133288","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"219","LOC111133291","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"220","LOC111133291","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"221","LOC111133291","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"222","LOC111133296","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"223","LOC111133296","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"224","LOC111133296","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"225","LOC111133298","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"226","LOC111133298","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"227","LOC111133298","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"228","LOC111133712","GO:0043653","mitochondrial fragmentation involved in apoptotic process",1,1,0.04,0.04003,"Biological Processes",1
+"229","LOC111134020","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"230","LOC111134020","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"231","LOC111134021","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"232","LOC111134021","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"233","LOC111134458","GO:0033539","fatty acid beta-oxidation using acyl-CoA dehydrogenase",5,2,0.2,0.01476,"Biological Processes",0.4
+"234","LOC111134594","GO:0042273","ribosomal large subunit biogenesis",58,14,2.32,2e-06,"Biological Processes",0.241379310344828
+"235","LOC111134642","GO:0097345","mitochondrial outer membrane permeabilization",1,1,0.04,0.04003,"Biological Processes",1
+"236","LOC111134659","GO:0000381","regulation of alternative mRNA splicing, via spliceosome",16,5,0.64,0.00031,"Biological Processes",0.3125
+"237","LOC111134659","GO:0000381","regulation of alternative mRNA splicing, via spliceosome",16,5,0.64,0.00031,"Biological Processes",0.3125
+"238","LOC111134659","GO:0006376","mRNA splice site selection",13,5,0.52,0.00044,"Biological Processes",0.384615384615385
+"239","LOC111134886","GO:0045216","cell-cell junction organization",9,3,0.36,0.0016,"Biological Processes",0.333333333333333
+"240","LOC111134886","GO:1900026","positive regulation of substrate adhesion-dependent cell spreading",1,1,0.04,0.04003,"Biological Processes",1
+"241","LOC111134886","GO:2001046","positive regulation of integrin-mediated signaling pathway",1,1,0.04,0.04003,"Biological Processes",1
+"242","LOC111135071","GO:0006623","protein targeting to vacuole",21,4,0.84,0.00884,"Biological Processes",0.19047619047619
+"243","LOC111135299","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"244","LOC111135299","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"245","LOC111135299","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"246","LOC111135374","GO:0006396","RNA processing",607,45,24.3,0.0093,"Biological Processes",0.0741350906095552
+"247","LOC111135708","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"248","LOC111135708","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"249","LOC111135802","GO:0000495","box H/ACA snoRNA 3'-end processing",1,1,0.04,0.04003,"Biological Processes",1
+"250","LOC111136015","GO:0006430","lysyl-tRNA aminoacylation",1,1,0.04,0.04003,"Biological Processes",1
+"251","LOC111136015","GO:0006430","lysyl-tRNA aminoacylation",1,1,0.04,0.04003,"Biological Processes",1
+"252","LOC111136084","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"253","LOC111136084","GO:0006338","chromatin remodeling",58,8,2.32,0.00492,"Biological Processes",0.137931034482759
+"254","LOC111136170","GO:0000209","protein polyubiquitination",544,42,21.78,3.6e-05,"Biological Processes",0.0772058823529412
+"255","LOC111136170","GO:0017148","negative regulation of translation",250,24,10.01,6.8e-05,"Biological Processes",0.096
+"256","LOC111136170","GO:0043161","proteasome-mediated ubiquitin-dependent protein catabolic process",655,51,26.22,2.6e-07,"Biological Processes",0.0778625954198473
+"257","LOC111136230","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"258","LOC111136230","GO:0042273","ribosomal large subunit biogenesis",58,14,2.32,2e-06,"Biological Processes",0.241379310344828
+"259","LOC111136290","GO:0010121","arginine catabolic process to proline via ornithine",1,1,0.04,0.04003,"Biological Processes",1
+"260","LOC111136290","GO:0019544","arginine catabolic process to glutamate",1,1,0.04,0.04003,"Biological Processes",1
+"261","LOC111136320","GO:0000387","spliceosomal snRNP assembly",29,4,1.16,0.02728,"Biological Processes",0.137931034482759
+"262","LOC111136425","GO:0042273","ribosomal large subunit biogenesis",58,14,2.32,2e-06,"Biological Processes",0.241379310344828
+"263","LOC111136820","GO:0000470","maturation of LSU-rRNA",23,4,0.92,0.04757,"Biological Processes",0.173913043478261
+"264","LOC111137006","GO:0000027","ribosomal large subunit assembly",19,3,0.76,0.03836,"Biological Processes",0.157894736842105
+"265","LOC111137006","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"266","LOC111137006","GO:0006412","translation",636,59,25.46,6.7e-05,"Biological Processes",0.0927672955974843
+"267","LOC111138040","GO:0006880","intracellular sequestering of iron ion",4,2,0.16,0.0091,"Biological Processes",0.5
+"268","LOC111099610","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"269","LOC111100085","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"270","LOC111100085","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"271","LOC111100085","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"272","LOC111100349","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"273","LOC111100355","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"274","LOC111100403","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"275","LOC111100426","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"276","LOC111100522","GO:0005912","adherens junction",48,6,1.99,0.04157,"Cellular Components",0.125
+"277","LOC111100547","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"278","LOC111100563","GO:0000235","astral microtubule",1,1,0.04,0.04144,"Cellular Components",1
+"279","LOC111100582","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"280","LOC111100765","GO:0005882","intermediate filament",5,2,0.21,0.01577,"Cellular Components",0.4
+"281","LOC111101860","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"282","LOC111102426","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"283","LOC111102683","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"284","LOC111102770","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"285","LOC111103155","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"286","LOC111103342","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"287","LOC111103427","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"288","LOC111103428","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"289","LOC111103631","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"290","LOC111103765","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"291","LOC111103765","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"292","LOC111103787","GO:0031466","Cul5-RING ubiquitin ligase complex",3,2,0.12,0.005,"Cellular Components",0.666666666666667
+"293","LOC111103866","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"294","LOC111103866","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"295","LOC111103915","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"296","LOC111103989","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"297","LOC111104049","GO:0005751","mitochondrial respiratory chain complex IV",7,3,0.29,0.00219,"Cellular Components",0.428571428571429
+"298","LOC111104060","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"299","LOC111104368","GO:0071565","nBAF complex",4,2,0.17,0.00973,"Cellular Components",0.5
+"300","LOC111104380","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"301","LOC111104688","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"302","LOC111104775","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"303","LOC111105616","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"304","LOC111105707","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"305","LOC111105812","GO:0071944","cell periphery",1633,57,67.67,0.04107,"Cellular Components",0.0349050826699326
+"306","LOC111105834","GO:0000812","Swr1 complex",8,2,0.33,0.04065,"Cellular Components",0.25
+"307","LOC111106378","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"308","LOC111106945","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"309","LOC111106945","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"310","LOC111106945","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"311","LOC111107067","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"312","LOC111107094","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"313","LOC111107163","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"314","LOC111107342","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"315","LOC111107711","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"316","LOC111107747","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"317","LOC111107832","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"318","LOC111107938","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"319","LOC111108040","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"320","LOC111108041","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"321","LOC111108043","GO:0005844","polysome",12,3,0.5,0.01177,"Cellular Components",0.25
+"322","LOC111108187","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"323","LOC111108200","GO:0008541","proteasome regulatory particle, lid subcomplex",8,2,0.33,0.04065,"Cellular Components",0.25
+"324","LOC111108202","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"325","LOC111108512","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"326","LOC111109131","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"327","LOC111109639","GO:0005685","U1 snRNP",17,5,0.7,0.00049,"Cellular Components",0.294117647058824
+"328","LOC111110086","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"329","LOC111110601","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"330","LOC111110978","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"331","LOC111111438","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"332","LOC111111599","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"333","LOC111111615","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"334","LOC111112048","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"335","LOC111112113","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"336","LOC111112121","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"337","LOC111112299","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"338","LOC111112599","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"339","LOC111112761","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"340","LOC111113100","GO:0005912","adherens junction",48,6,1.99,0.04157,"Cellular Components",0.125
+"341","LOC111113124","GO:0030897","HOPS complex",6,2,0.25,0.02301,"Cellular Components",0.333333333333333
+"342","LOC111113331","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"343","LOC111113446","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"344","LOC111113446","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"345","LOC111114537","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"346","LOC111114680","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"347","LOC111114853","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"348","LOC111114909","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"349","LOC111114913","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"350","LOC111114913","GO:0005912","adherens junction",48,6,1.99,0.04157,"Cellular Components",0.125
+"351","LOC111114914","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"352","LOC111114921","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"353","LOC111115822","GO:0031514","motile cilium",26,4,1.08,0.03621,"Cellular Components",0.153846153846154
+"354","LOC111116688","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"355","LOC111117101","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"356","LOC111117154","GO:0071944","cell periphery",1633,57,67.67,0.04107,"Cellular Components",0.0349050826699326
+"357","LOC111117359","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"358","LOC111117444","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"359","LOC111117650","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"360","LOC111117833","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"361","LOC111117964","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"362","LOC111117985","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"363","LOC111118007","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"364","LOC111118091","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"365","LOC111118136","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"366","LOC111118152","GO:0033179","proton-transporting V-type ATPase, V0 domain",5,2,0.21,0.01577,"Cellular Components",0.4
+"367","LOC111118435","GO:0042995","cell projection",625,25,25.9,0.03162,"Cellular Components",0.04
+"368","LOC111118497","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"369","LOC111118918","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"370","LOC111119574","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"371","LOC111119576","GO:0005762","mitochondrial large ribosomal subunit",36,5,1.49,0.01564,"Cellular Components",0.138888888888889
+"372","LOC111119597","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"373","LOC111119597","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"374","LOC111119651","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"375","LOC111119745","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"376","LOC111119776","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"377","LOC111119927","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"378","LOC111119987","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"379","LOC111120087","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"380","LOC111120505","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"381","LOC111120563","GO:0036156","inner dynein arm",1,1,0.04,0.04144,"Cellular Components",1
+"382","LOC111120594","GO:0071565","nBAF complex",4,2,0.17,0.00973,"Cellular Components",0.5
+"383","LOC111120664","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"384","LOC111120664","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"385","LOC111120664","GO:0005844","polysome",12,3,0.5,0.01177,"Cellular Components",0.25
+"386","LOC111120897","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"387","LOC111120952","GO:0005762","mitochondrial large ribosomal subunit",36,5,1.49,0.01564,"Cellular Components",0.138888888888889
+"388","LOC111120952","GO:0005762","mitochondrial large ribosomal subunit",36,5,1.49,0.01564,"Cellular Components",0.138888888888889
+"389","LOC111121210","GO:0000812","Swr1 complex",8,2,0.33,0.04065,"Cellular Components",0.25
+"390","LOC111121210","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"391","LOC111121363","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"392","LOC111121370","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"393","LOC111121370","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"394","LOC111121541","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"395","LOC111121601","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"396","LOC111121745","GO:0005685","U1 snRNP",17,5,0.7,0.00049,"Cellular Components",0.294117647058824
+"397","LOC111121745","GO:0005685","U1 snRNP",17,5,0.7,0.00049,"Cellular Components",0.294117647058824
+"398","LOC111121745","GO:0071004","U2-type prespliceosome",13,3,0.54,0.01483,"Cellular Components",0.230769230769231
+"399","LOC111121920","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"400","LOC111121920","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"401","LOC111122250","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"402","LOC111122288","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"403","LOC111122288","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"404","LOC111122316","GO:0030315","T-tubule",1,1,0.04,0.04144,"Cellular Components",1
+"405","LOC111122652","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"406","LOC111122853","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"407","LOC111123127","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"408","LOC111123188","GO:0005762","mitochondrial large ribosomal subunit",36,5,1.49,0.01564,"Cellular Components",0.138888888888889
+"409","LOC111123236","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"410","LOC111123875","GO:0005912","adherens junction",48,6,1.99,0.04157,"Cellular Components",0.125
+"411","LOC111123994","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"412","LOC111124014","GO:0030897","HOPS complex",6,2,0.25,0.02301,"Cellular Components",0.333333333333333
+"413","LOC111124236","GO:0005948","acetolactate synthase complex",1,1,0.04,0.04144,"Cellular Components",1
+"414","LOC111124506","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"415","LOC111124507","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"416","LOC111124507","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"417","LOC111124552","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"418","LOC111124615","GO:0070274","RES complex",1,1,0.04,0.04144,"Cellular Components",1
+"419","LOC111124746","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"420","LOC111124749","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"421","LOC111124948","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"422","LOC111124992","GO:0005882","intermediate filament",5,2,0.21,0.01577,"Cellular Components",0.4
+"423","LOC111125129","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"424","LOC111125315","GO:0090535","WICH complex",1,1,0.04,0.04144,"Cellular Components",1
+"425","LOC111125438","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"426","LOC111125596","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"427","LOC111125605","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"428","LOC111125750","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"429","LOC111125750","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"430","LOC111125761","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"431","LOC111125773","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"432","LOC111125921","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"433","LOC111126053","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"434","LOC111126128","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"435","LOC111126277","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"436","LOC111126280","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"437","LOC111126281","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"438","LOC111126659","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"439","LOC111126968","GO:0042995","cell projection",625,25,25.9,0.03162,"Cellular Components",0.04
+"440","LOC111127274","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"441","LOC111127274","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"442","LOC111127274","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"443","LOC111127289","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"444","LOC111127289","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"445","LOC111127384","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"446","LOC111127847","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"447","LOC111127912","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"448","LOC111127912","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"449","LOC111127912","GO:0019773","proteasome core complex, alpha-subunit complex",8,2,0.33,0.04065,"Cellular Components",0.25
+"450","LOC111127912","GO:0019773","proteasome core complex, alpha-subunit complex",8,2,0.33,0.04065,"Cellular Components",0.25
+"451","LOC111127922","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"452","LOC111128115","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"453","LOC111128116","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"454","LOC111128135","GO:0071944","cell periphery",1633,57,67.67,0.04107,"Cellular Components",0.0349050826699326
+"455","LOC111128838","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"456","LOC111128883","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"457","LOC111128971","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"458","LOC111129065","GO:0005685","U1 snRNP",17,5,0.7,0.00049,"Cellular Components",0.294117647058824
+"459","LOC111129065","GO:0071004","U2-type prespliceosome",13,3,0.54,0.01483,"Cellular Components",0.230769230769231
+"460","LOC111129410","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"461","LOC111129496","GO:0005685","U1 snRNP",17,5,0.7,0.00049,"Cellular Components",0.294117647058824
+"462","LOC111129675","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"463","LOC111129798","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"464","LOC111129798","GO:0071944","cell periphery",1633,57,67.67,0.04107,"Cellular Components",0.0349050826699326
+"465","LOC111129841","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"466","LOC111129865","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"467","LOC111129928","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"468","LOC111130039","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"469","LOC111130086","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"470","LOC111130344","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"471","LOC111130431","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"472","LOC111130431","GO:0019773","proteasome core complex, alpha-subunit complex",8,2,0.33,0.04065,"Cellular Components",0.25
+"473","LOC111130431","GO:0019773","proteasome core complex, alpha-subunit complex",8,2,0.33,0.04065,"Cellular Components",0.25
+"474","LOC111130521","GO:0005751","mitochondrial respiratory chain complex IV",7,3,0.29,0.00219,"Cellular Components",0.428571428571429
+"475","LOC111130521","GO:0005751","mitochondrial respiratory chain complex IV",7,3,0.29,0.00219,"Cellular Components",0.428571428571429
+"476","LOC111130572","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"477","LOC111130572","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"478","LOC111130572","GO:0008541","proteasome regulatory particle, lid subcomplex",8,2,0.33,0.04065,"Cellular Components",0.25
+"479","LOC111130969","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"480","LOC111130969","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"481","LOC111131549","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"482","LOC111131654","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"483","LOC111131654","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"484","LOC111131668","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"485","LOC111132047","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"486","LOC111132060","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"487","LOC111132132","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"488","LOC111132160","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"489","LOC111132160","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"490","LOC111132762","GO:0005751","mitochondrial respiratory chain complex IV",7,3,0.29,0.00219,"Cellular Components",0.428571428571429
+"491","LOC111133107","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"492","LOC111133190","GO:0005762","mitochondrial large ribosomal subunit",36,5,1.49,0.01564,"Cellular Components",0.138888888888889
+"493","LOC111133281","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"494","LOC111133488","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"495","LOC111133488","GO:0031466","Cul5-RING ubiquitin ligase complex",3,2,0.12,0.005,"Cellular Components",0.666666666666667
+"496","LOC111134465","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"497","LOC111134527","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"498","LOC111134531","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"499","LOC111134594","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"500","LOC111134594","GO:0030690","Noc1p-Noc2p complex",1,1,0.04,0.04144,"Cellular Components",1
+"501","LOC111134594","GO:0030691","Noc2p-Noc3p complex",1,1,0.04,0.04144,"Cellular Components",1
+"502","LOC111134642","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"503","LOC111134873","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"504","LOC111135070","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"505","LOC111135089","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"506","LOC111135089","GO:0015630","microtubule cytoskeleton",453,39,18.77,9.4e-05,"Cellular Components",0.0860927152317881
+"507","LOC111135106","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"508","LOC111135171","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"509","LOC111135184","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"510","LOC111135184","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"511","LOC111135193","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"512","LOC111135210","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"513","LOC111135210","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"514","LOC111135283","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"515","LOC111135315","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"516","LOC111135374","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"517","LOC111135433","GO:0005844","polysome",12,3,0.5,0.01177,"Cellular Components",0.25
+"518","LOC111135509","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"519","LOC111135664","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"520","LOC111136015","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"521","LOC111136084","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"522","LOC111136084","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"523","LOC111136090","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"524","LOC111136090","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"525","LOC111136169","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"526","LOC111136172","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"527","LOC111136230","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"528","LOC111136273","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"529","LOC111136296","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"530","LOC111136320","GO:0005685","U1 snRNP",17,5,0.7,0.00049,"Cellular Components",0.294117647058824
+"531","LOC111136320","GO:0071004","U2-type prespliceosome",13,3,0.54,0.01483,"Cellular Components",0.230769230769231
+"532","LOC111136425","GO:0022625","cytosolic large ribosomal subunit",49,10,2.03,2.6e-05,"Cellular Components",0.204081632653061
+"533","LOC111136629","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"534","LOC111136820","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"535","LOC111136845","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"536","LOC111136890","GO:0005762","mitochondrial large ribosomal subunit",36,5,1.49,0.01564,"Cellular Components",0.138888888888889
+"537","LOC111136994","GO:0000785","chromatin",677,41,28.05,0.01117,"Cellular Components",0.0605612998522895
+"538","LOC111137032","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"539","LOC111137078","GO:0033179","proton-transporting V-type ATPase, V0 domain",5,2,0.21,0.01577,"Cellular Components",0.4
+"540","LOC111137078","GO:0033179","proton-transporting V-type ATPase, V0 domain",5,2,0.21,0.01577,"Cellular Components",0.4
+"541","LOC111137169","GO:0031514","motile cilium",26,4,1.08,0.03621,"Cellular Components",0.153846153846154
+"542","LOC111137467","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"543","LOC111137559","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"544","LOC111137559","GO:0005829","cytosol",810,56,33.56,0.01232,"Cellular Components",0.0691358024691358
+"545","LOC111137679","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"546","LOC111137679","GO:0005730","nucleolus",181,20,7.5,6.7e-06,"Cellular Components",0.110497237569061
+"547","LOC111137775","GO:1902560","GMP reductase complex",1,1,0.04,0.04144,"Cellular Components",1
+"548","LOC111138046","GO:0031213","RSF complex",1,1,0.04,0.04144,"Cellular Components",1
+"549","LOC111138334","GO:0031514","motile cilium",26,4,1.08,0.03621,"Cellular Components",0.153846153846154
+"550","LOC111138352","GO:0005634","nucleus",3481,190,144.24,0.00178,"Cellular Components",0.0545820166618788
+"551","LOC111099053","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"552","LOC111099101","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"553","LOC111099601","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"554","LOC111099702","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"555","LOC111100085","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"556","LOC111100355","GO:0016149","translation release factor activity, codon specific",1,1,0.04,0.03505,"Molecular Functions",1
+"557","LOC111100403","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"558","LOC111100403","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"559","LOC111100413","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"560","LOC111100413","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"561","LOC111100426","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"562","LOC111100522","GO:0008013","beta-catenin binding",5,2,0.18,0.01143,"Molecular Functions",0.4
+"563","LOC111100522","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"564","LOC111100522","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"565","LOC111100546","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"566","LOC111100547","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"567","LOC111100547","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"568","LOC111100548","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"569","LOC111100548","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"570","LOC111100548","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"571","LOC111100562","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"572","LOC111100563","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"573","LOC111100577","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"574","LOC111100632","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"575","LOC111100668","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"576","LOC111100668","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"577","LOC111100668","GO:0031072","heat shock protein binding",46,5,1.61,0.02353,"Molecular Functions",0.108695652173913
+"578","LOC111100668","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"579","LOC111100668","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"580","LOC111100671","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"581","LOC111100671","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"582","LOC111100765","GO:0005198","structural molecule activity",371,31,13,0.04131,"Molecular Functions",0.0835579514824798
+"583","LOC111100885","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"584","LOC111100924","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"585","LOC111100924","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"586","LOC111100924","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"587","LOC111100946","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"588","LOC111100977","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"589","LOC111100977","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"590","LOC111101025","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"591","LOC111101025","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"592","LOC111101025","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"593","LOC111101025","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"594","LOC111101036","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"595","LOC111101040","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"596","LOC111101040","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"597","LOC111101041","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"598","LOC111101041","GO:0046961","proton-transporting ATPase activity, rotational mechanism",23,4,0.81,0.00779,"Molecular Functions",0.173913043478261
+"599","LOC111101057","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"600","LOC111101112","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"601","LOC111101112","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"602","LOC111101112","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"603","LOC111101725","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"604","LOC111101725","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"605","LOC111101817","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"606","LOC111101817","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"607","LOC111101852","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"608","LOC111101852","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"609","LOC111101853","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"610","LOC111101853","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"611","LOC111101853","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"612","LOC111101860","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"613","LOC111101860","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"614","LOC111102426","GO:0003730","mRNA 3'-UTR binding",18,3,0.63,0.02362,"Molecular Functions",0.166666666666667
+"615","LOC111102533","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"616","LOC111102533","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"617","LOC111102683","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"618","LOC111102683","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"619","LOC111102935","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"620","LOC111102935","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"621","LOC111102935","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"622","LOC111103218","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"623","LOC111103305","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"624","LOC111103314","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"625","LOC111103323","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"626","LOC111103342","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"627","LOC111103342","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"628","LOC111103453","GO:0004711","ribosomal protein S6 kinase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"629","LOC111103453","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"630","LOC111103560","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"631","LOC111103866","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"632","LOC111103866","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"633","LOC111103916","GO:0042813","Wnt-activated receptor activity",6,2,0.21,0.01675,"Molecular Functions",0.333333333333333
+"634","LOC111104060","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"635","LOC111104060","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"636","LOC111104061","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"637","LOC111104380","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"638","LOC111104380","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"639","LOC111104407","GO:0008198","ferrous iron binding",20,3,0.7,0.03134,"Molecular Functions",0.15
+"640","LOC111104407","GO:0008199","ferric iron binding",8,2,0.28,0.02985,"Molecular Functions",0.25
+"641","LOC111104407","GO:0008199","ferric iron binding",8,2,0.28,0.02985,"Molecular Functions",0.25
+"642","LOC111104490","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"643","LOC111104490","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"644","LOC111104490","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"645","LOC111104541","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"646","LOC111105476","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"647","LOC111105476","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"648","LOC111105616","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"649","LOC111105616","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"650","LOC111105688","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"651","LOC111105707","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"652","LOC111105707","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"653","LOC111105812","GO:0004100","chitin synthase activity",23,3,0.81,0.04509,"Molecular Functions",0.130434782608696
+"654","LOC111105834","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"655","LOC111105845","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"656","LOC111105845","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"657","LOC111106170","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"658","LOC111106223","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"659","LOC111106294","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"660","LOC111106696","GO:0030976","thiamine pyrophosphate binding",6,3,0.21,0.00079,"Molecular Functions",0.5
+"661","LOC111106696","GO:0030976","thiamine pyrophosphate binding",6,3,0.21,0.00079,"Molecular Functions",0.5
+"662","LOC111106879","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"663","LOC111106879","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"664","LOC111106881","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"665","LOC111106945","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"666","LOC111107021","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"667","LOC111107021","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"668","LOC111107094","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"669","LOC111107094","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"670","LOC111107163","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"671","LOC111107208","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"672","LOC111107262","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"673","LOC111107342","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"674","LOC111107343","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"675","LOC111107343","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"676","LOC111107358","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"677","LOC111107482","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"678","LOC111107711","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"679","LOC111107711","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"680","LOC111107747","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"681","LOC111107747","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"682","LOC111107786","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"683","LOC111107786","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"684","LOC111107875","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"685","LOC111107875","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"686","LOC111107933","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"687","LOC111107933","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"688","LOC111107933","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"689","LOC111107938","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"690","LOC111107938","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"691","LOC111108026","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"692","LOC111108040","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"693","LOC111108040","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"694","LOC111108041","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"695","LOC111108041","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"696","LOC111108043","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"697","LOC111108138","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"698","LOC111108138","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"699","LOC111108202","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"700","LOC111108202","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"701","LOC111108492","GO:0008887","glycerate kinase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"702","LOC111108512","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"703","LOC111108663","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"704","LOC111108725","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"705","LOC111108725","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"706","LOC111109197","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"707","LOC111109634","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"708","LOC111109639","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"709","LOC111109639","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"710","LOC111110081","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"711","LOC111110549","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"712","LOC111110549","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"713","LOC111110733","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"714","LOC111110733","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"715","LOC111110978","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"716","LOC111111143","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"717","LOC111111143","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"718","LOC111111143","GO:0030234","enzyme regulator activity",566,36,19.84,0.00531,"Molecular Functions",0.0636042402826855
+"719","LOC111111223","GO:0008013","beta-catenin binding",5,2,0.18,0.01143,"Molecular Functions",0.4
+"720","LOC111111223","GO:0008013","beta-catenin binding",5,2,0.18,0.01143,"Molecular Functions",0.4
+"721","LOC111111223","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"722","LOC111111438","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"723","LOC111111438","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"724","LOC111111461","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"725","LOC111111461","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"726","LOC111111599","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"727","LOC111111615","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"728","LOC111111615","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"729","LOC111112035","GO:0008137","NADH dehydrogenase (ubiquinone) activity",8,2,0.28,0.02985,"Molecular Functions",0.25
+"730","LOC111112113","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"731","LOC111112117","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"732","LOC111112121","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"733","LOC111112162","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"734","LOC111112304","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"735","LOC111112304","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"736","LOC111112761","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"737","LOC111112917","GO:0008198","ferrous iron binding",20,3,0.7,0.03134,"Molecular Functions",0.15
+"738","LOC111113062","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"739","LOC111113165","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"740","LOC111113165","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"741","LOC111113165","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"742","LOC111113166","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"743","LOC111113166","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"744","LOC111113166","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"745","LOC111113296","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"746","LOC111113340","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"747","LOC111113447","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"748","LOC111114183","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"749","LOC111114183","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"750","LOC111114212","GO:0005198","structural molecule activity",371,31,13,0.04131,"Molecular Functions",0.0835579514824798
+"751","LOC111114460","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"752","LOC111114460","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"753","LOC111114537","GO:0031072","heat shock protein binding",46,5,1.61,0.02353,"Molecular Functions",0.108695652173913
+"754","LOC111114909","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"755","LOC111114909","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"756","LOC111114914","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"757","LOC111114914","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"758","LOC111114917","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"759","LOC111114921","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"760","LOC111114921","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"761","LOC111115048","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"762","LOC111115048","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"763","LOC111115048","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"764","LOC111115048","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"765","LOC111115167","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"766","LOC111115508","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"767","LOC111115508","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"768","LOC111115588","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"769","LOC111115588","GO:0008191","metalloendopeptidase inhibitor activity",44,6,1.54,0.00412,"Molecular Functions",0.136363636363636
+"770","LOC111115883","GO:0003857","3-hydroxyacyl-CoA dehydrogenase activity",4,2,0.14,0.00702,"Molecular Functions",0.5
+"771","LOC111116688","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"772","LOC111116688","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"773","LOC111116831","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"774","LOC111117154","GO:0004100","chitin synthase activity",23,3,0.81,0.04509,"Molecular Functions",0.130434782608696
+"775","LOC111117309","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"776","LOC111117309","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"777","LOC111117325","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"778","LOC111117350","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"779","LOC111117350","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"780","LOC111117357","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"781","LOC111117423","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"782","LOC111117423","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"783","LOC111117646","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"784","LOC111117647","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"785","LOC111117731","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"786","LOC111117731","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"787","LOC111117735","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"788","LOC111117735","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"789","LOC111117735","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"790","LOC111117736","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"791","LOC111117739","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"792","LOC111117739","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"793","LOC111117739","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"794","LOC111117740","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"795","LOC111117740","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"796","LOC111117740","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"797","LOC111117749","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"798","LOC111117749","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"799","LOC111117749","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"800","LOC111117762","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"801","LOC111117762","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"802","LOC111117833","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"803","LOC111117833","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"804","LOC111117964","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"805","LOC111118007","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"806","LOC111118007","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"807","LOC111118071","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"808","LOC111118097","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"809","LOC111118098","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"810","LOC111118102","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"811","LOC111118106","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"812","LOC111118136","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"813","LOC111118136","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"814","LOC111118152","GO:0046961","proton-transporting ATPase activity, rotational mechanism",23,4,0.81,0.00779,"Molecular Functions",0.173913043478261
+"815","LOC111118497","GO:0004691","cAMP-dependent protein kinase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"816","LOC111118497","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"817","LOC111118600","GO:0030976","thiamine pyrophosphate binding",6,3,0.21,0.00079,"Molecular Functions",0.5
+"818","LOC111118600","GO:0030976","thiamine pyrophosphate binding",6,3,0.21,0.00079,"Molecular Functions",0.5
+"819","LOC111118894","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"820","LOC111118894","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"821","LOC111118909","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"822","LOC111118916","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"823","LOC111118916","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"824","LOC111119206","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"825","LOC111119206","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"826","LOC111119459","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"827","LOC111119459","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"828","LOC111119568","GO:0005080","protein kinase C binding",6,2,0.21,0.01675,"Molecular Functions",0.333333333333333
+"829","LOC111119574","GO:0004693","cyclin-dependent protein serine/threonine kinase activity",17,3,0.6,0.0202,"Molecular Functions",0.176470588235294
+"830","LOC111119574","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"831","LOC111119576","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"832","LOC111119576","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"833","LOC111119586","GO:0005198","structural molecule activity",371,31,13,0.04131,"Molecular Functions",0.0835579514824798
+"834","LOC111119597","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"835","LOC111119597","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"836","LOC111119745","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"837","LOC111119745","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"838","LOC111119941","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"839","LOC111120118","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"840","LOC111120123","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"841","LOC111120563","GO:0045503","dynein light chain binding",10,2,0.35,0.0458,"Molecular Functions",0.2
+"842","LOC111120650","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"843","LOC111120662","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"844","LOC111120664","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"845","LOC111120677","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"846","LOC111120677","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"847","LOC111120712","GO:0003857","3-hydroxyacyl-CoA dehydrogenase activity",4,2,0.14,0.00702,"Molecular Functions",0.5
+"848","LOC111120877","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"849","LOC111120897","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"850","LOC111120952","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"851","LOC111120952","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"852","LOC111121005","GO:0035650","AP-1 adaptor complex binding",1,1,0.04,0.03505,"Molecular Functions",1
+"853","LOC111121005","GO:0035650","AP-1 adaptor complex binding",1,1,0.04,0.03505,"Molecular Functions",1
+"854","LOC111121200","GO:0003730","mRNA 3'-UTR binding",18,3,0.63,0.02362,"Molecular Functions",0.166666666666667
+"855","LOC111121207","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"856","LOC111121207","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"857","LOC111121210","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"858","LOC111121370","GO:0005080","protein kinase C binding",6,2,0.21,0.01675,"Molecular Functions",0.333333333333333
+"859","LOC111121372","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"860","LOC111121372","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"861","LOC111121380","GO:0000062","fatty-acyl-CoA binding",8,2,0.28,0.02985,"Molecular Functions",0.25
+"862","LOC111121380","GO:0004361","glutaryl-CoA dehydrogenase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"863","LOC111121393","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"864","LOC111121418","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"865","LOC111121418","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"866","LOC111121418","GO:0030234","enzyme regulator activity",566,36,19.84,0.00531,"Molecular Functions",0.0636042402826855
+"867","LOC111121485","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"868","LOC111121485","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"869","LOC111121546","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"870","LOC111121601","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"871","LOC111121601","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"872","LOC111121601","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"873","LOC111121745","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"874","LOC111121745","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"875","LOC111121913","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"876","LOC111121913","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"877","LOC111121913","GO:0030234","enzyme regulator activity",566,36,19.84,0.00531,"Molecular Functions",0.0636042402826855
+"878","LOC111121920","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"879","LOC111122250","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"880","LOC111122273","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"881","LOC111122308","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"882","LOC111122308","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"883","LOC111122437","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"884","LOC111122509","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"885","LOC111122551","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"886","LOC111122703","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"887","LOC111122703","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"888","LOC111122778","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"889","LOC111122859","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"890","LOC111123127","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"891","LOC111123167","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"892","LOC111123188","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"893","LOC111123188","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"894","LOC111123236","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"895","LOC111123242","GO:0005198","structural molecule activity",371,31,13,0.04131,"Molecular Functions",0.0835579514824798
+"896","LOC111123242","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"897","LOC111123416","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"898","LOC111123596","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"899","LOC111123815","GO:0047389","glycerophosphocholine phosphodiesterase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"900","LOC111123867","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"901","LOC111123994","GO:0003730","mRNA 3'-UTR binding",18,3,0.63,0.02362,"Molecular Functions",0.166666666666667
+"902","LOC111124236","GO:0003984","acetolactate synthase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"903","LOC111124236","GO:0030976","thiamine pyrophosphate binding",6,3,0.21,0.00079,"Molecular Functions",0.5
+"904","LOC111124506","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"905","LOC111124506","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"906","LOC111124507","GO:0004693","cyclin-dependent protein serine/threonine kinase activity",17,3,0.6,0.0202,"Molecular Functions",0.176470588235294
+"907","LOC111124507","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"908","LOC111124615","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"909","LOC111124749","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"910","LOC111124875","GO:0042813","Wnt-activated receptor activity",6,2,0.21,0.01675,"Molecular Functions",0.333333333333333
+"911","LOC111124927","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"912","LOC111124948","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"913","LOC111124948","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"914","LOC111124992","GO:0005198","structural molecule activity",371,31,13,0.04131,"Molecular Functions",0.0835579514824798
+"915","LOC111124992","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"916","LOC111124992","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"917","LOC111125084","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"918","LOC111125084","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"919","LOC111125119","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"920","LOC111125129","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"921","LOC111125150","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"922","LOC111125150","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"923","LOC111125152","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"924","LOC111125164","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"925","LOC111125231","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"926","LOC111125249","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"927","LOC111125344","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"928","LOC111125444","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"929","LOC111125507","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"930","LOC111125507","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"931","LOC111125507","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"932","LOC111125507","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"933","LOC111125548","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"934","LOC111125548","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"935","LOC111125548","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"936","LOC111125596","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"937","LOC111125596","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"938","LOC111125605","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"939","LOC111125605","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"940","LOC111125750","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"941","LOC111125836","GO:0046961","proton-transporting ATPase activity, rotational mechanism",23,4,0.81,0.00779,"Molecular Functions",0.173913043478261
+"942","LOC111125836","GO:0046961","proton-transporting ATPase activity, rotational mechanism",23,4,0.81,0.00779,"Molecular Functions",0.173913043478261
+"943","LOC111126003","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"944","LOC111126003","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"945","LOC111126053","GO:0004655","porphobilinogen synthase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"946","LOC111126053","GO:0004655","porphobilinogen synthase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"947","LOC111126053","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"948","LOC111126128","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"949","LOC111126134","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"950","LOC111126134","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"951","LOC111126280","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"952","LOC111126281","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"953","LOC111126281","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"954","LOC111126361","GO:0008124","4-alpha-hydroxytetrahydrobiopterin dehydratase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"955","LOC111126361","GO:0008124","4-alpha-hydroxytetrahydrobiopterin dehydratase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"956","LOC111126641","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"957","LOC111126883","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"958","LOC111126883","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"959","LOC111126883","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"960","LOC111126968","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"961","LOC111126968","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"962","LOC111127274","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"963","LOC111127274","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"964","LOC111127289","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"965","LOC111127289","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"966","LOC111127289","GO:0031072","heat shock protein binding",46,5,1.61,0.02353,"Molecular Functions",0.108695652173913
+"967","LOC111127289","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"968","LOC111127384","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"969","LOC111127384","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"970","LOC111127562","GO:0050113","inositol oxygenase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"971","LOC111127562","GO:0050113","inositol oxygenase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"972","LOC111127744","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"973","LOC111127847","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"974","LOC111127847","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"975","LOC111127870","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"976","LOC111127870","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"977","LOC111128122","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"978","LOC111128122","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"979","LOC111128135","GO:0004100","chitin synthase activity",23,3,0.81,0.04509,"Molecular Functions",0.130434782608696
+"980","LOC111128139","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"981","LOC111128756","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"982","LOC111128756","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"983","LOC111128838","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"984","LOC111128883","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"985","LOC111128979","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"986","LOC111129056","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"987","LOC111129112","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"988","LOC111129161","GO:0004491","methylmalonate-semialdehyde dehydrogenase (acylating) activity",1,1,0.04,0.03505,"Molecular Functions",1
+"989","LOC111129161","GO:0004491","methylmalonate-semialdehyde dehydrogenase (acylating) activity",1,1,0.04,0.03505,"Molecular Functions",1
+"990","LOC111129161","GO:0018478","malonate-semialdehyde dehydrogenase (acetylating) activity",1,1,0.04,0.03505,"Molecular Functions",1
+"991","LOC111129296","GO:0008137","NADH dehydrogenase (ubiquinone) activity",8,2,0.28,0.02985,"Molecular Functions",0.25
+"992","LOC111129296","GO:0008137","NADH dehydrogenase (ubiquinone) activity",8,2,0.28,0.02985,"Molecular Functions",0.25
+"993","LOC111129410","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"994","LOC111129410","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"995","LOC111129410","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"996","LOC111129443","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"997","LOC111129443","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"998","LOC111129443","GO:0030234","enzyme regulator activity",566,36,19.84,0.00531,"Molecular Functions",0.0636042402826855
+"999","LOC111129448","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1000","LOC111129448","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1001","LOC111129448","GO:0030234","enzyme regulator activity",566,36,19.84,0.00531,"Molecular Functions",0.0636042402826855
+"1002","LOC111129483","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1003","LOC111129496","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1004","LOC111129536","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1005","LOC111129561","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1006","LOC111129561","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1007","LOC111129798","GO:0016807","cysteine-type carboxypeptidase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1008","LOC111129841","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1009","LOC111129841","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1010","LOC111129841","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"1011","LOC111129841","GO:0051082","unfolded protein binding",66,7,2.31,0.00818,"Molecular Functions",0.106060606060606
+"1012","LOC111129841","GO:0097718","disordered domain specific binding",1,1,0.04,0.03505,"Molecular Functions",1
+"1013","LOC111129859","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1014","LOC111129859","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1015","LOC111129865","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1016","LOC111129908","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1017","LOC111129950","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1018","LOC111129950","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1019","LOC111130039","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1020","LOC111130240","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1021","LOC111130240","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1022","LOC111130257","GO:0051015","actin filament binding",117,12,4.1,0.00083,"Molecular Functions",0.102564102564103
+"1023","LOC111130300","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1024","LOC111130343","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1025","LOC111130401","GO:0030234","enzyme regulator activity",566,36,19.84,0.00531,"Molecular Functions",0.0636042402826855
+"1026","LOC111130555","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"1027","LOC111130555","GO:0030165","PDZ domain binding",1,1,0.04,0.03505,"Molecular Functions",1
+"1028","LOC111130657","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1029","LOC111130657","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1030","LOC111130773","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1031","LOC111130939","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1032","LOC111130939","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1033","LOC111131057","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1034","LOC111131124","GO:0003950","NAD+ ADP-ribosyltransferase activity",57,5,2,0.04898,"Molecular Functions",0.087719298245614
+"1035","LOC111131124","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1036","LOC111131124","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1037","LOC111131124","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1038","LOC111131654","GO:0005527","macrolide binding",1,1,0.04,0.03505,"Molecular Functions",1
+"1039","LOC111131751","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1040","LOC111132060","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1041","LOC111132160","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"1042","LOC111132160","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"1043","LOC111132621","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1044","LOC111132621","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1045","LOC111132670","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"1046","LOC111132670","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"1047","LOC111132762","GO:0030234","enzyme regulator activity",566,36,19.84,0.00531,"Molecular Functions",0.0636042402826855
+"1048","LOC111132791","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1049","LOC111132982","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"1050","LOC111132982","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"1051","LOC111133045","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1052","LOC111133045","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1053","LOC111133107","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1054","LOC111133107","GO:0031434","mitogen-activated protein kinase kinase binding",1,1,0.04,0.03505,"Molecular Functions",1
+"1055","LOC111133190","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1056","LOC111133190","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1057","LOC111133277","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1058","LOC111133277","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1059","LOC111133280","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1060","LOC111133281","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1061","LOC111133281","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1062","LOC111133281","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1063","LOC111133288","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1064","LOC111133288","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1065","LOC111133288","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1066","LOC111133291","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1067","LOC111133291","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1068","LOC111133291","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1069","LOC111133292","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1070","LOC111133296","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1071","LOC111133296","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1072","LOC111133298","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1073","LOC111133298","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1074","LOC111133488","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1075","LOC111133488","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1076","LOC111134020","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1077","LOC111134020","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1078","LOC111134021","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1079","LOC111134021","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1080","LOC111134103","GO:0005198","structural molecule activity",371,31,13,0.04131,"Molecular Functions",0.0835579514824798
+"1081","LOC111134104","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1082","LOC111134104","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1083","LOC111134164","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1084","LOC111134386","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1085","LOC111134404","GO:0004516","nicotinate phosphoribosyltransferase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1086","LOC111134404","GO:0004516","nicotinate phosphoribosyltransferase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1087","LOC111134465","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"1088","LOC111134465","GO:0003950","NAD+ ADP-ribosyltransferase activity",57,5,2,0.04898,"Molecular Functions",0.087719298245614
+"1089","LOC111134502","GO:0003950","NAD+ ADP-ribosyltransferase activity",57,5,2,0.04898,"Molecular Functions",0.087719298245614
+"1090","LOC111134594","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"1091","LOC111134594","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"1092","LOC111134659","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1093","LOC111134659","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1094","LOC111134794","GO:1905394","retromer complex binding",1,1,0.04,0.03505,"Molecular Functions",1
+"1095","LOC111134903","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1096","LOC111135061","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1097","LOC111135064","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1098","LOC111135071","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1099","LOC111135118","GO:0003950","NAD+ ADP-ribosyltransferase activity",57,5,2,0.04898,"Molecular Functions",0.087719298245614
+"1100","LOC111135118","GO:0003950","NAD+ ADP-ribosyltransferase activity",57,5,2,0.04898,"Molecular Functions",0.087719298245614
+"1101","LOC111135147","GO:0004838","L-tyrosine:2-oxoglutarate aminotransferase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1102","LOC111135208","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"1103","LOC111135258","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1104","LOC111135258","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1105","LOC111135258","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1106","LOC111135283","GO:0016428","tRNA (cytosine-5-)-methyltransferase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1107","LOC111135283","GO:0016428","tRNA (cytosine-5-)-methyltransferase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1108","LOC111135299","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1109","LOC111135299","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1110","LOC111135299","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1111","LOC111135315","GO:0003714","transcription corepressor activity",69,7,2.42,0.01037,"Molecular Functions",0.101449275362319
+"1112","LOC111135374","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1113","LOC111135374","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1114","LOC111135433","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1115","LOC111135491","GO:0000062","fatty-acyl-CoA binding",8,2,0.28,0.02985,"Molecular Functions",0.25
+"1116","LOC111135491","GO:0017099","very-long-chain-acyl-CoA dehydrogenase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1117","LOC111135509","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1118","LOC111135509","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1119","LOC111135664","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1120","LOC111135664","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1121","LOC111135708","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1122","LOC111135779","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1123","LOC111135802","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1124","LOC111135845","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1125","LOC111136013","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1126","LOC111136013","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1127","LOC111136015","GO:0004824","lysine-tRNA ligase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1128","LOC111136015","GO:0004824","lysine-tRNA ligase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1129","LOC111136015","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1130","LOC111136084","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1131","LOC111136084","GO:0042393","histone binding",71,11,2.49,1.8e-05,"Molecular Functions",0.154929577464789
+"1132","LOC111136090","GO:0031071","cysteine desulfurase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1133","LOC111136090","GO:0031071","cysteine desulfurase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1134","LOC111136109","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1135","LOC111136118","GO:0003729","mRNA binding",160,17,5.61,0.00255,"Molecular Functions",0.10625
+"1136","LOC111136169","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1137","LOC111136169","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1138","LOC111136170","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1139","LOC111136170","GO:0030371","translation repressor activity",233,25,8.17,1.5e-06,"Molecular Functions",0.107296137339056
+"1140","LOC111136170","GO:0061630","ubiquitin protein ligase activity",601,46,21.06,6.4e-07,"Molecular Functions",0.0765391014975042
+"1141","LOC111136172","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"1142","LOC111136172","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1143","LOC111136230","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1144","LOC111136230","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1145","LOC111136230","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1146","LOC111136245","GO:0005509","calcium ion binding",846,45,29.65,0.00367,"Molecular Functions",0.0531914893617021
+"1147","LOC111136273","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1148","LOC111136273","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1149","LOC111136290","GO:0004587","ornithine-oxo-acid transaminase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1150","LOC111136290","GO:0004587","ornithine-oxo-acid transaminase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1151","LOC111136320","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1152","LOC111136320","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1153","LOC111136425","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1154","LOC111136425","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1155","LOC111136425","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1156","LOC111136425","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1157","LOC111136516","GO:0045503","dynein light chain binding",10,2,0.35,0.0458,"Molecular Functions",0.2
+"1158","LOC111136562","GO:0003950","NAD+ ADP-ribosyltransferase activity",57,5,2,0.04898,"Molecular Functions",0.087719298245614
+"1159","LOC111136803","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"1160","LOC111136803","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1161","LOC111136820","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1162","LOC111136820","GO:0009383","rRNA (cytosine-C5-)-methyltransferase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1163","LOC111136845","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1164","LOC111136890","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1165","LOC111136890","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1166","LOC111136994","GO:0004842","ubiquitin-protein transferase activity",1214,79,42.55,0.00721,"Molecular Functions",0.0650741350906096
+"1167","LOC111136994","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1168","LOC111137006","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1169","LOC111137006","GO:0003735","structural constituent of ribosome",174,23,6.1,4.6e-08,"Molecular Functions",0.132183908045977
+"1170","LOC111137032","GO:0004693","cyclin-dependent protein serine/threonine kinase activity",17,3,0.6,0.0202,"Molecular Functions",0.176470588235294
+"1171","LOC111137032","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1172","LOC111137063","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"1173","LOC111137063","GO:0004222","metalloendopeptidase activity",197,15,6.9,0.0041,"Molecular Functions",0.0761421319796954
+"1174","LOC111137078","GO:0046961","proton-transporting ATPase activity, rotational mechanism",23,4,0.81,0.00779,"Molecular Functions",0.173913043478261
+"1175","LOC111137078","GO:0046961","proton-transporting ATPase activity, rotational mechanism",23,4,0.81,0.00779,"Molecular Functions",0.173913043478261
+"1176","LOC111137295","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1177","LOC111137467","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1178","LOC111137679","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1179","LOC111137775","GO:0003920","GMP reductase activity",1,1,0.04,0.03505,"Molecular Functions",1
+"1180","LOC111138040","GO:0008198","ferrous iron binding",20,3,0.7,0.03134,"Molecular Functions",0.15
+"1181","LOC111138040","GO:0008199","ferric iron binding",8,2,0.28,0.02985,"Molecular Functions",0.25
+"1182","LOC111138040","GO:0008199","ferric iron binding",8,2,0.28,0.02985,"Molecular Functions",0.25
+"1183","LOC111138286","GO:0008270","zinc ion binding",2113,105,74.06,0.00014,"Molecular Functions",0.0496923805016564
+"1184","LOC111138305","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1185","LOC111138305","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1186","LOC111138334","GO:0008017","microtubule binding",158,14,5.54,0.00356,"Molecular Functions",0.0886075949367089
+"1187","LOC111138352","GO:0003723","RNA binding",833,66,29.2,1.8e-05,"Molecular Functions",0.0792316926770708
+"1188","LOC111138352","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"1189","LOC111138352","GO:0003724","RNA helicase activity",46,6,1.61,0.00515,"Molecular Functions",0.130434782608696
+"1190","LOC111138352","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
+"1191","LOC111138369","GO:0005524","ATP binding",1286,63,45.07,0.00443,"Molecular Functions",0.0489891135303266
