@@ -1,0 +1,2449 @@
+---
+title: "RISG_CADO_Juv_Outliers"
+author: "Amy Zyck"
+date: '2024-11-18'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Fst and PCA of candidate juvenile loci 
+
+## Organizing vcf files
+
+In terminal:
+
+In `juv_ddocent` directory, make a new directory for Pop and Sea Gen analyses
+
+```
+$ mkdir Juv_Selection_Analysis 
+$ cd Juv_Selection_Analysis
+```
+
+Make a sub directory for the outlier SNP sets and link vcf files 
+
+```
+$ mkdir Juv_Outlier
+$ cd Juv_Outlier
+
+$ ln -s ../../Juv_OutlierDetection/outlierloci_juv.recode.vcf .
+$ ln -s ../../Juv_OutlierDetection/outlierloci_juv_db.recode.vcf .
+$ ln -s ../../Juv_OutlierDetection/outlierloci_juv_lfmm.recode.vcf .
+```
+
+```{r}
+#Loading all the necessary packages
+library(adegenet)
+library(vcfR)
+library("radiator") # Conversion from vcf to a lot of other formats
+library("dplyr")
+library("hierfstat")
+library("ggplot2") #For plotting
+library("reshape2") #For plotting
+#library("plyr")
+library("cowplot") #For plotting manuscript figs
+library(PCAviz)  #Visualizing output of PCA
+#library("stringr")
+library(tidyverse)
+library("poppr")
+library(eulerr)
+```
+
+
+## Making files
+
+```{r}
+# Setting up strata file - population info and environmental data 
+strata_juv <- read.table("../strata_cado", header=TRUE)
+
+# Making new version of strata file with one row per population
+strata_juv_pops <- strata_juv %>% distinct(Population, .keep_all = TRUE)
+```
+
+```{r}
+#Providing population names for plotting
+pop_order_juv <- c("Con1","Con2","Con3","Hi1","Hi2","Hi3")
+```
+
+All outliers
+
+**Make genind object**
+
+```{r}
+# VCF file with juv SNP dataset
+my_vcf_out_juv <- read.vcfR("outlierloci_juv.recode.vcf")
+```
+
+```{r}
+rad_out_juv.filt <- vcfR2genind(my_vcf_out_juv, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_out_juv.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_out_juv.filt <- genind2hierfstat(rad_out_juv.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_out_juv.mat <- pairwise.WCfst(hf_out_juv.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_out_juv_fst <- boot.ppfst(hf_out_juv.filt,nboot = 1000)
+boot5_out_juv_fst <- boot.ppfst(hf_out_juv.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_out_juv_ll <- boot5_out_juv_fst$ll
+```
+
+```{r}
+gindF_out_juv.fst.mat.triN <- as.matrix(fst_out_juv.mat)
+colnames(gindF_out_juv.fst.mat.triN) <- pop_order_juv
+rownames(gindF_out_juv.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_out_juv <- melt(gindF_out_juv.fst.mat.triN, na.rm =TRUE)
+round(gindF_out_juv.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_out_juv$value)
+```
+
+```{r}
+#Plotting Pairwise fst
+out_juv <- ggplot(data = meltedN_out_juv, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "blue1", name="FST")  +
+  ggtitle(expression(atop("Pairwise FST, WC (1984) juv outlier SNPs", atop(italic("N = 120, L = 346"), ""))))+
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1),axis.text.y = element_text(size = 12)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =14), legend.title = element_text(size =14)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+out_juv
+```
+
+## PCA 
+
+```{r}
+library("PCAviz")  #Visualizing output of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Create color scheme
+cols_juv = c("blue1","lightblue","darkblue","red","red3","darkred")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv <- scaleGen(rad_out_juv.filt, NA.method = "mean")
+out_juv_pca <- dudi.pca(x_out_juv, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv <- round((out_juv_pca$eig / (sum(out_juv_pca$eig))) * 100, 2)
+
+pca_dat_out_juv <- as.data.frame(out_juv_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3")))
+
+
+ggplot(data = pca_dat_out_juv) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+
+LFMM outliers
+
+**Make genind object**
+
+```{r}
+# VCF file with juv_lfmm SNP dataset
+my_vcf_out_juv_lfmm <- read.vcfR("outlierloci_juv_lfmm.recode.vcf")
+```
+
+```{r}
+rad_out_juv_lfmm.filt <- vcfR2genind(my_vcf_out_juv_lfmm, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_out_juv_lfmm.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_out_juv_lfmm.filt <- genind2hierfstat(rad_out_juv_lfmm.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_out_juv_lfmm.mat <- pairwise.WCfst(hf_out_juv_lfmm.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_out_juv_lfmm_fst <- boot.ppfst(hf_out_juv_lfmm.filt,nboot = 1000)
+boot5_out_juv_lfmm_fst <- boot.ppfst(hf_out_juv_lfmm.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_out_juv_lfmm_ll <- boot5_out_juv_lfmm_fst$ll
+```
+
+```{r}
+gindF_out_juv_lfmm.fst.mat.triN <- as.matrix(fst_out_juv_lfmm.mat)
+colnames(gindF_out_juv_lfmm.fst.mat.triN) <- pop_order_juv
+rownames(gindF_out_juv_lfmm.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_out_juv_lfmm <- melt(gindF_out_juv_lfmm.fst.mat.triN, na.rm =TRUE)
+round(gindF_out_juv_lfmm.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_out_juv_lfmm$value)
+```
+
+```{r}
+#Plotting Pairwise fst
+out_juv_lfmm <- ggplot(data = meltedN_out_juv_lfmm, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "blue1", name="FST")  +
+  ggtitle(expression(atop("Pairwise FST, WC (1984) juv_lfmm outlier SNPs", atop(italic("N = 120, L = 24"), ""))))+
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1),axis.text.y = element_text(size = 12)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =14), legend.title = element_text(size =14)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+out_juv_lfmm
+```
+
+## PCA 
+
+```{r}
+library("PCAviz")  #Visualizing output of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Create color scheme
+cols_juv_lfmm = c("blue1","lightblue","darkblue","red","red3","darkred")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv_lfmm <- scaleGen(rad_out_juv_lfmm.filt, NA.method = "mean")
+out_juv_lfmm_pca <- dudi.pca(x_out_juv_lfmm, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv_lfmm <- round((out_juv_lfmm_pca$eig / (sum(out_juv_lfmm_pca$eig))) * 100, 2)
+
+pca_dat_out_juv_lfmm <- as.data.frame(out_juv_lfmm_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv_lfmm.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3")))
+
+
+ggplot(data = pca_dat_out_juv_lfmm) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv_lfmm[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv_lfmm[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+```{r}
+rad_out_juv_lfmm_treat.filt <- vcfR2genind(my_vcf_out_juv_lfmm, strata = strata_juv, pop = c(rep("Control", 60),rep("CADO", 60)))
+
+rad_out_juv_lfmm_treat.filt
+```
+
+```{r}
+# Create color scheme
+cols_juv_lfmm_treat = c("blue1","red")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv_lfmm_treat <- scaleGen(rad_out_juv_lfmm_treat.filt, NA.method = "mean")
+out_juv_lfmm_treat_pca <- dudi.pca(x_out_juv_lfmm_treat, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv_lfmm_treat <- round((out_juv_lfmm_treat_pca$eig / (sum(out_juv_lfmm_treat_pca$eig))) * 100, 2)
+
+pca_dat_out_juv_lfmm_treat <- as.data.frame(out_juv_lfmm_treat_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv_lfmm_treat.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Control", "CADO")))
+
+
+ggplot(data = pca_dat_out_juv_lfmm_treat) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv_lfmm_treat) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv_lfmm_treat[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv_lfmm_treat[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+```{r}
+library(vegan)
+```
+
+```{r}
+pc_scores <- out_juv_lfmm_treat_pca$li
+```
+
+```{r}
+pop <- c(rep("Control", 60),rep("CADO", 60))
+```
+
+```{r}
+permanova_result <- adonis2(pc_scores ~ pop, method = "euclidean")
+print(permanova_result)
+```
+
+```{r}
+pca_data <- data.frame(PC1 = pc_scores[,1], PC2 = pc_scores[,2], Treatment = pop)
+
+ggplot(pca_data, aes(x = PC1, y = PC2, color = Treatment)) +
+  geom_point() +
+  stat_ellipse() +
+  theme_minimal()
+```
+
+323 LFMM outliers
+
+**Make genind object**
+
+```{r}
+# VCF file with juv_lfmm_0.6 SNP dataset
+my_vcf_out_juv_lfmm_0.6 <- read.vcfR("outlierloci_juv_lfmm_0.6.recode.vcf")
+```
+
+```{r}
+rad_out_juv_lfmm_0.6.filt <- vcfR2genind(my_vcf_out_juv_lfmm_0.6, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_out_juv_lfmm_0.6.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_out_juv_lfmm_0.6.filt <- genind2hierfstat(rad_out_juv_lfmm_0.6.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_out_juv_lfmm_0.6.mat <- pairwise.WCfst(hf_out_juv_lfmm_0.6.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_out_juv_lfmm_0.6_fst <- boot.ppfst(hf_out_juv_lfmm_0.6.filt,nboot = 1000)
+boot5_out_juv_lfmm_0.6_fst <- boot.ppfst(hf_out_juv_lfmm_0.6.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_out_juv_lfmm_0.6_ll <- boot5_out_juv_lfmm_0.6_fst$ll
+```
+
+```{r}
+gindF_out_juv_lfmm_0.6.fst.mat.triN <- as.matrix(fst_out_juv_lfmm_0.6.mat)
+colnames(gindF_out_juv_lfmm_0.6.fst.mat.triN) <- pop_order_juv
+rownames(gindF_out_juv_lfmm_0.6.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_out_juv_lfmm_0.6 <- reshape2::melt(gindF_out_juv_lfmm_0.6.fst.mat.triN, na.rm =TRUE)
+round(gindF_out_juv_lfmm_0.6.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_out_juv_lfmm_0.6$value)
+```
+
+```{r}
+new_names <- c(
+  "Con1" = "Control 1", "Con2" = "Control 2", "Con3" = "Control 3",
+  "Hi1" = "Stress 1", "Hi2" = "Stress 2", "Hi3" = "Stress 3"
+)
+
+# Apply the new names to your melted data
+meltedN_out_juv_lfmm_0.6$Var1 <- factor(new_names[as.character(meltedN_out_juv_lfmm_0.6$Var1)], levels = new_names)
+meltedN_out_juv_lfmm_0.6$Var2 <- factor(new_names[as.character(meltedN_out_juv_lfmm_0.6$Var2)], levels = new_names)
+
+#Plotting Pairwise fst
+out_juv_lfmm_0.6 <- ggplot(data = meltedN_out_juv_lfmm_0.6, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "#25B396", name="FST")  +
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 10, hjust = 1),axis.text.y = element_text(size = 10)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =10), legend.title = element_text(size =10)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+out_juv_lfmm_0.6
+```
+
+## PCA 
+
+```{r}
+library("PCAviz")  #Visualizing output of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Create color scheme
+cols_juv_lfmm_0.6 = c("blue1","lightblue","darkblue","red","red3","darkred")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv_lfmm_0.6 <- scaleGen(rad_out_juv_lfmm_0.6.filt, NA.method = "mean")
+out_juv_lfmm_0.6_pca <- dudi.pca(x_out_juv_lfmm_0.6, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv_lfmm_0.6 <- round((out_juv_lfmm_0.6_pca$eig / (sum(out_juv_lfmm_0.6_pca$eig))) * 100, 2)
+
+pca_dat_out_juv_lfmm_0.6 <- as.data.frame(out_juv_lfmm_0.6_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv_lfmm_0.6.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3")))
+
+
+ggplot(data = pca_dat_out_juv_lfmm_0.6) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv_lfmm_0.6[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv_lfmm_0.6[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+```{r}
+rad_out_juv_lfmm_0.6_treat.filt <- vcfR2genind(my_vcf_out_juv_lfmm_0.6, strata = strata_juv, pop = c(rep("Control", 60),rep("CADO", 60)))
+
+rad_out_juv_lfmm_0.6_treat.filt
+```
+
+```{r}
+# Create color scheme
+cols_juv_lfmm_0.6_treat = c("#56B4E9","orange")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv_lfmm_0.6_treat <- scaleGen(rad_out_juv_lfmm_0.6_treat.filt, NA.method = "mean")
+out_juv_lfmm_0.6_treat_pca <- dudi.pca(x_out_juv_lfmm_0.6_treat, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv_lfmm_0.6_treat <- round((out_juv_lfmm_0.6_treat_pca$eig / (sum(out_juv_lfmm_0.6_treat_pca$eig))) * 100, 2)
+
+pca_dat_out_juv_lfmm_0.6_treat <- as.data.frame(out_juv_lfmm_0.6_treat_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv_lfmm_0.6_treat.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Control", "CADO")))
+
+
+ggplot(data = pca_dat_out_juv_lfmm_0.6_treat) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv_lfmm_0.6_treat) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv_lfmm_0.6_treat[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv_lfmm_0.6_treat[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+```{r}
+pc_scores <- out_juv_lfmm_0.6_treat_pca$li
+```
+
+```{r}
+pop <- c(rep("Control", 60),rep("CADO", 60))
+```
+
+```{r}
+permanova_result <- adonis2(pc_scores ~ pop, method = "euclidean")
+print(permanova_result)
+```
+
+```{r}
+pca_data <- data.frame(PC1 = pc_scores[,1], PC2 = pc_scores[,2], Treatment = pop)
+
+
+# Define new treatment names
+new_treatment_names <- c("Control" = "Control",
+                         "CADO" = "Stress")
+
+# Define custom colors
+custom_colors <- c("Control" = "#56B4E9", "CADO" = "orange")
+
+# Extract p-value from PERMANOVA result
+p_value <- permanova_result$`Pr(>F)`[1]
+
+eigenvalues <- eigen(cov(pca_data[, c("PC1", "PC2")]))$values
+
+# Calculate proportion of variance explained
+pve <- eigenvalues / sum(eigenvalues) * 100
+
+# Create the plot with proportion of variance on axes
+ggplot(pca_data, aes(x = PC1, y = PC2, color = Treatment)) +
+  geom_point() +
+  stat_ellipse() +
+  theme_minimal() +
+  scale_color_manual(values = custom_colors, labels = new_treatment_names) +
+  xlab(paste0("PC1 (", round(pve[1], 2), "%)")) +
+  ylab(paste0("PC2 (", round(pve[2], 2), "%)")) +
+  annotate("text", x = -Inf, y = -Inf, 
+           label = paste("PERMANOVA\n p =", format(p_value, digits = 2)),
+           hjust = -0.1, vjust = -1)
+```
+
+```{r}
+pca_loadings_out_juv_pc1 <- out_juv_lfmm_0.6_treat_pca$co %>%
+  as_tibble(rownames = "allele") %>%
+  extract(allele, c("locus","chrom", "pos", "allele"), "(NC_(\\d+)_1_(\\d+)).(\\d)") %>%
+  mutate(pos = as.integer(pos)) %>%
+  dplyr::select(locus, chrom, pos, allele, Comp1, Comp2) %>%
+  mutate(Comp1 = Comp1^2, Comp2 = Comp2^2) %>%
+  dplyr::arrange(desc(Comp1))
+
+pca_loadings_out_juv_pc2 <- out_juv_lfmm_0.6_treat_pca$co %>%
+  as_tibble(rownames = "allele") %>%
+  extract(allele, c("locus","chrom", "pos", "allele"), "(NC_(\\d+)_1_(\\d+)).(\\d)") %>%
+  mutate(pos = as.integer(pos)) %>%
+  dplyr::select(locus, chrom, pos, allele, Comp1, Comp2) %>%
+  mutate(Comp1 = Comp1^2, Comp2 = Comp2^2) %>%
+  dplyr::arrange(desc(Comp2))
+```
+
+
+## Correspondence analysis-based RDA
+
+```{r}
+# Run a CA on the genind object
+obj_out_juv <- genind2genpop(rad_out_juv_lfmm_0.6.filt)
+ca1_out_juv <- dudi.coa(tab(obj_out_juv), scannf=FALSE, nf=10)
+eig_ca1_out_juv <- round((ca1_out_juv$eig / (sum(ca1_out_juv$eig))) * 100, 2)
+out_ca_out_juv <- ca1_out_juv$li[,1:2]
+rownames(out_ca_out_juv) <- popNames(rad_out_juv_lfmm_0.6.filt)
+```
+
+```{r}
+out_ca_out_juv <- out_ca_out_juv %>%
+  rownames_to_column(var = "Treatment") %>%
+  mutate(Treatment = factor(Treatment, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3"))) %>%
+  dplyr::select(Treatment, Axis1, Axis2)
+```
+
+```{r}
+# Plot the CA
+ggplot(out_ca_out_juv, aes(x = Axis1, y = Axis2, colour = Treatment)) +
+  geom_point(size = 6, alpha = 0.8) +
+  scale_colour_manual(values = cols_juv_lfmm_0.6,
+                      name = "") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14)) +
+  labs(x = paste("", "Axis 1: ", eig_ca1_out_juv[1], "%"), y = paste("", "Axis 2: ", eig_ca1_out_juv[2], "%"))
+```
+
+
+```{r}
+ca_loadings_out_juv_ca1 <- ca1_out_juv$co %>%
+  as_tibble(rownames = "allele") %>%
+  extract(allele, c("locus","chrom", "pos", "allele"), "(NC_(\\d+)_1_(\\d+)).(\\d)") %>%
+  mutate(pos = as.integer(pos)) %>%
+  dplyr::select(locus, chrom, pos, allele, Comp1, Comp2) %>%
+  mutate(Comp1 = Comp1^2, Comp2 = Comp2^2) %>%
+  dplyr::arrange(desc(Comp1))
+```
+
+Making a file with loci chromosome and position info saved with the geneID
+
+```{bash}
+bedtools intersect -a <(awk '{print $1 "\t" $2-1 "\t" $2 "\t" $1"_"$2}' outliers_juv_lfmm2_0.6.loci.txt) -b sorted.ref3.0.gene.bed -wb | 
+awk -F'\t' '{split($NF,a,"gene="); split(a[2],b,";"); print $1 "\t" $3 "\t" b[1]}' | 
+sort -u > outliers_juv_lfmm2_0.6.with_genes.txt
+```
+
+
+## Making bed files to look for overlap between candidate larval and juvenile loci 
+
+First extract chromosome and 
+
+```{bash}
+awk '{print $1 "\t" $2-1 "\t" $2}' outliers_juv_lfmm2_0.6.loci.txt | bedtools sort -i - > outliers_juv_lfmm2_06.bed
+
+bedtools slop -b 10 -i outliers_juv_lfmm2_06.bed -g reference.fasta.fai | bedtools merge -i - > outliers_juv_lfmm2_06.intervals.bed
+```
+
+## Identifying genes for juvenile candidate loci
+
+```{bash}
+bedtools intersect -wb -a outliers_juv_lfmm2_06.bed -b sorted.ref3.0.gene.bed | grep -oh "gene=LOC.*;g" | sed 's/gene=//g' | sed 's/;g//g' | sort | uniq > Sig.gene.juv.CADO.LOC
+```
+
+194 genes 
+
+
+## Gene Ontology with TopGO
+
+I have a gaf from NCBI with the GO terms for genes in the eastern oyster genome. I'm going to take this file and extract the Gene IDs and associated GO terms.
+
+In terminal:
+
+```{bash}
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/022/765/GCF_002022765.2_C_virginica-3.0/GCF_002022765.2_C_virginica-3.0_gene_ontology.gaf.gz
+
+gunzip GCF_002022765.2_C_virginica-3.0_gene_ontology.gaf.gz
+
+mv GCF_002022765.2_C_virginica-3.0_gene_ontology.gaf gene_ontology.gaf
+```
+
+Making a new .tab file with just the gene ID and GO IDs (3rd and 5th columns) renamed "gene_name" and "GeneOntologyIDs". The gene_name column will have one unique observation per row and all associated GO terms will be saved in the same row, with values separaetd by ;
+
+```{bash}
+awk 'NR>9 {print $3 "\t" $5}' gene_ontology.gaf | 
+sed '1i gene_name\tGeneOntologyIDs' | 
+sort | awk '
+NR==1 {print; next}
+$1!=prev {
+if (NR>2) print prev "\t" goids;
+prev=$1;
+goids=$2;
+next
+}
+{
+goids=goids "; " $2
+}
+END {print prev "\t" goids}
+' > gene2go_full.tab
+```
+
+Gene IDs for the candidate loci are saved to `Sig.gene.juv.CADO.LOC`
+
+I'm making another file with the gene IDs and GO IDs for the candidate loci:
+
+```{bash}
+grep -F -f Sig.gene.juv.CADO.LOC gene2go_full.tab > juv_cand_genes_GO.tab
+
+# Add header
+awk 'BEGIN {print "gene_name\tGeneOntologyIDs"} {print}' juv_cand_genes_GO.tab > juv_cand_genes_GO_head.tab
+```
+
+In R:
+
+```{r}
+#if (!require("BiocManager", quietly = TRUE))
+    #install.packages("BiocManager")
+
+#BiocManager::install("topGO")
+```
+
+```{r setup, include=FALSE}
+library(topGO)
+```
+
+Read in gene2go information 
+
+Old file names: all_genes (gene2go_full.tab); candidate genes (gene2go.tab)
+
+```{r}
+all_gene2go<-read.delim("gene2go_full.tab", sep="\t")
+out_gene2go<-read.delim("juv_cand_genes_GO_head.tab", sep="\t")
+```
+
+Make list of genes for input to TopGO
+
+```{r}
+cand_genes <- as.character(unique(out_gene2go$gene_name))
+all_genes <- as.character(all_gene2go$gene_name)
+out_GeneList <- factor(as.integer(all_genes %in% cand_genes))
+names(out_GeneList) <- all_genes
+```
+
+The following code will perform GO enrichment using the weighted Fisher's exact test  
+
+Read in gene-to-go-mappings
+```{r}
+gene2go_topgo<-readMappings("gene2go_full.tab", IDsep=";", sep="\t")
+```
+
+Set function to select genes of interest (ie those that have pvalue < 0.05)
+```{r}
+topDiffGenes <- function(allScore) {
+return(allScore < 0.05)}
+```
+
+### Biological Processes
+
+Create `topGOdata` object, which is required for topGO analysis
+```{r}
+GO_OUT_BP_pi <-new("topGOdata", ontology="BP", gene2GO=gene2go_topgo, allGenes=out_GeneList, annot = annFUN.gene2GO, geneSel=topDiffGenes)
+```
+
+Run GO enrichment test 
+```{r}
+GO_OUT_BP_FE_pi <- runTest(GO_OUT_BP_pi, algorithm="weight01", statistic="fisher")
+```
+
+Generate results table 
+```{r}
+GO_OUT_BP_En_pi <- GenTable(GO_OUT_BP_pi, Fisher = GO_OUT_BP_FE_pi, orderBy = "Fisher",  topNodes = 100, numChar = 100)
+```
+Only taking the top 100 GO terms 
+
+Filter by significant results
+```{r}
+GO_OUT_BP_En_pi$Fisher<-as.numeric(GO_OUT_BP_En_pi$Fisher)
+GO_OUT_BP_En_sig_pi<-GO_OUT_BP_En_pi[GO_OUT_BP_En_pi$Fisher<0.05,]
+```
+
+Merge `GO_OUT_BP_En_sig_pi` with GO and gene info. 
+```{r}
+# Separate GO terms 
+out_gene2go <- out_gene2go %>%
+  separate_rows(GeneOntologyIDs, sep = ";")
+
+# Ensure GO terms in both datasets are formatted similarly (trim whitespaces)
+out_gene2go$GeneOntologyIDs <- trimws(out_gene2go$GeneOntologyIDs)
+GO_OUT_BP_En_sig_pi$GO.ID <- trimws(GO_OUT_BP_En_sig_pi$GO.ID)
+
+# Join the datasets based on GO term
+GO_OUT_BP_En_sig_gene_pi <- out_gene2go %>%
+  left_join(GO_OUT_BP_En_sig_pi, by = c("GeneOntologyIDs" = "GO.ID")) %>%
+  na.omit()
+
+# Add ontology column 
+GO_OUT_BP_En_sig_gene_pi$ontology <- "Biological Processes"
+```
+
+### Cellular Components
+
+Create `topGOdata` object, which is required for topGO analysis
+```{r}
+GO_OUT_CC_pi <-new("topGOdata", ontology="CC", gene2GO=gene2go_topgo, allGenes=out_GeneList, annot = annFUN.gene2GO, geneSel=topDiffGenes)
+```
+
+Run GO enrichment test 
+```{r}
+GO_OUT_CC_FE_pi <- runTest(GO_OUT_CC_pi, algorithm="weight01", statistic="fisher")
+```
+
+Generate results table 
+```{r}
+GO_OUT_CC_En_pi <- GenTable(GO_OUT_CC_pi, Fisher = GO_OUT_CC_FE_pi, orderBy = "Fisher",  topNodes = 100, numChar = 100)
+```
+Only taking the top 100 GO terms 
+
+Filter by significant results
+```{r}
+GO_OUT_CC_En_pi$Fisher<-as.numeric(GO_OUT_CC_En_pi$Fisher)
+GO_OUT_CC_En_sig_pi<-GO_OUT_CC_En_pi[GO_OUT_CC_En_pi$Fisher<0.05,]
+```
+
+Merge `GO_OUT_CC_En_sig_pi` with GO and gene info. 
+```{r}
+# Separate GO terms 
+out_gene2go <- out_gene2go %>%
+  separate_rows(GeneOntologyIDs, sep = ";")
+
+# Ensure GO terms in both datasets are formatted similarly (trim whitespaces)
+out_gene2go$GeneOntologyIDs <- trimws(out_gene2go$GeneOntologyIDs)
+GO_OUT_CC_En_sig_pi$GO.ID <- trimws(GO_OUT_CC_En_sig_pi$GO.ID)
+
+# Join the datasets based on GO term
+GO_OUT_CC_En_sig_gene_pi <- out_gene2go %>%
+  left_join(GO_OUT_CC_En_sig_pi, by = c("GeneOntologyIDs" = "GO.ID")) %>%
+  na.omit()
+
+# Add ontology column 
+GO_OUT_CC_En_sig_gene_pi$ontology <- "Cellular Components"
+```
+
+### Molecular Functions
+
+Create `topGOdata` object, which is required for topGO analysis
+```{r}
+GO_OUT_MF_pi <-new("topGOdata", ontology="MF", gene2GO=gene2go_topgo, allGenes=out_GeneList, annot = annFUN.gene2GO, geneSel=topDiffGenes)
+```
+
+Run GO enrichment test 
+```{r}
+GO_OUT_MF_FE_pi <- runTest(GO_OUT_MF_pi, algorithm="weight01", statistic="fisher")
+```
+
+Generate results table 
+```{r}
+GO_OUT_MF_En_pi <- GenTable(GO_OUT_MF_pi, Fisher = GO_OUT_MF_FE_pi, orderBy = "Fisher",  topNodes = 100, numChar = 100)
+```
+Only taking the top 100 GO terms 
+
+Filter by significant results
+```{r}
+GO_OUT_MF_En_pi$Fisher<-as.numeric(GO_OUT_MF_En_pi$Fisher)
+GO_OUT_MF_En_sig_pi<-GO_OUT_MF_En_pi[GO_OUT_MF_En_pi$Fisher<0.05,]
+```
+
+Merge `GO_OUT_MF_En_sig_pi` with GO and gene info. 
+```{r}
+# Separate GO terms 
+out_gene2go <- out_gene2go %>%
+  separate_rows(GeneOntologyIDs, sep = ";")
+
+# Ensure GO terms in both datasets are formatted similarly (trim whitespaces)
+out_gene2go$GeneOntologyIDs <- trimws(out_gene2go$GeneOntologyIDs)
+GO_OUT_MF_En_sig_pi$GO.ID <- trimws(GO_OUT_MF_En_sig_pi$GO.ID)
+
+# Join the datasets based on GO term
+GO_OUT_MF_En_sig_gene_pi <- out_gene2go %>%
+  left_join(GO_OUT_MF_En_sig_pi, by = c("GeneOntologyIDs" = "GO.ID")) %>%
+  na.omit()
+
+# Add ontology column 
+GO_OUT_MF_En_sig_gene_pi$ontology <- "Molecular Functions"
+```
+
+### Join ontologies
+
+Bind `GO_OUT_BP_En_sig_gene_pi`, `GO_OUT_CC_En_sig_gene_pi`, and `GO_OUT_MF_En_sig_gene_pi` to make a df that has significantly enriched GO terms for all ontologies 
+```{r}
+GO_OUT_En_sig_gene_pi <- rbind(GO_OUT_BP_En_sig_gene_pi, GO_OUT_CC_En_sig_gene_pi, GO_OUT_MF_En_sig_gene_pi)
+```
+
+Merge `pi_bed_filt` with `GO_PEVE_En_sig_gene` and calculate proportion of significant genes
+```{r}
+merged_out_genes <- GO_OUT_En_sig_gene_pi %>%
+  mutate(prop.sig.genes = Significant/Annotated)
+
+# Write to csv 
+write.csv(merged_out_genes, "Juv_OUT_GO_en_sig_gene.csv")
+```
+
+Plot - need to work out 
+```{r}
+GO_plot_pi<-ggplot(merged_out_genes, aes(x = Term, y = -log(Fisher), size = prop.sig.genes, fill = -log(Fisher))) +
+  expand_limits(y = 1.5) +
+  ylim(1, 7.25) +
+  #Add horizontal lines with a single aesthetic value
+  geom_hline(yintercept = -log10(0.01), linetype = "longdash", colour = "black", linewidth = .6) +
+  geom_hline(yintercept = -log10(0.001), linetype = "solid", colour = "black", linewidth = .6) +
+  geom_point(shape = 21) + 
+  scale_size(range = c(2, 12)) + 
+  scale_fill_continuous(low = "#1AD3D1FF", high = "#4686FBFF") +
+  xlab('') + 
+  ylab('Enrichment score') +
+  #labs(caption = 'Cut-off lines at p=0.01 and p=0.001') +
+  theme_bw() +
+  facet_grid(vars(ontology), scales = "free", space = "free_y") +
+  coord_flip(); GO_plot_pi
+```
+
+
+
+
+
+
+
+145 LFMM outliers
+
+**Make genind object**
+
+```{r}
+# VCF file with juv_lfmm_0.64 SNP dataset
+my_vcf_out_juv_lfmm_0.64 <- read.vcfR("outlierloci_juv_lfmm_0.64.recode.vcf")
+```
+
+```{r}
+rad_out_juv_lfmm_0.64.filt <- vcfR2genind(my_vcf_out_juv_lfmm_0.64, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_out_juv_lfmm_0.64.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_out_juv_lfmm_0.64.filt <- genind2hierfstat(rad_out_juv_lfmm_0.64.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_out_juv_lfmm_0.64.mat <- pairwise.WCfst(hf_out_juv_lfmm_0.64.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_out_juv_lfmm_0.64_fst <- boot.ppfst(hf_out_juv_lfmm_0.64.filt,nboot = 1000)
+boot5_out_juv_lfmm_0.64_fst <- boot.ppfst(hf_out_juv_lfmm_0.64.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_out_juv_lfmm_0.64_ll <- boot5_out_juv_lfmm_0.64_fst$ll
+```
+
+```{r}
+gindF_out_juv_lfmm_0.64.fst.mat.triN <- as.matrix(fst_out_juv_lfmm_0.64.mat)
+colnames(gindF_out_juv_lfmm_0.64.fst.mat.triN) <- pop_order_juv
+rownames(gindF_out_juv_lfmm_0.64.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_out_juv_lfmm_0.64 <- melt(gindF_out_juv_lfmm_0.64.fst.mat.triN, na.rm =TRUE)
+round(gindF_out_juv_lfmm_0.64.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_out_juv_lfmm_0.64$value)
+```
+
+```{r}
+#Plotting Pairwise fst
+out_juv_lfmm_0.64 <- ggplot(data = meltedN_out_juv_lfmm_0.64, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "blue1", name="FST")  +
+  ggtitle(expression(atop("Pairwise FST, WC (1984) juv_lfmm outlier SNPs", atop(italic("N = 120, L = 145"), ""))))+
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1),axis.text.y = element_text(size = 12)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =14), legend.title = element_text(size =14)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+out_juv_lfmm_0.64
+```
+
+## PCA 
+
+```{r}
+library("PCAviz")  #Visualizing output of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Create color scheme
+cols_juv_lfmm_0.64 = c("blue1","lightblue","darkblue","red","red3","darkred")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv_lfmm_0.64 <- scaleGen(rad_out_juv_lfmm_0.64.filt, NA.method = "mean")
+out_juv_lfmm_0.64_pca <- dudi.pca(x_out_juv_lfmm_0.64, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv_lfmm_0.64 <- round((out_juv_lfmm_0.64_pca$eig / (sum(out_juv_lfmm_0.64_pca$eig))) * 100, 2)
+
+pca_dat_out_juv_lfmm_0.64 <- as.data.frame(out_juv_lfmm_0.64_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv_lfmm_0.64.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3")))
+
+
+ggplot(data = pca_dat_out_juv_lfmm_0.64) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv_lfmm_0.64[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv_lfmm_0.64[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+30 LFMM outliers
+
+**Make genind object**
+
+```{r}
+# VCF file with juv_lfmm_0.7 SNP dataset
+my_vcf_out_juv_lfmm_0.7 <- read.vcfR("outlierloci_juv_lfmm_0.7.recode.vcf")
+```
+
+```{r}
+rad_out_juv_lfmm_0.7.filt <- vcfR2genind(my_vcf_out_juv_lfmm_0.7, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_out_juv_lfmm_0.7.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_out_juv_lfmm_0.7.filt <- genind2hierfstat(rad_out_juv_lfmm_0.7.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_out_juv_lfmm_0.7.mat <- pairwise.WCfst(hf_out_juv_lfmm_0.7.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_out_juv_lfmm_0.7_fst <- boot.ppfst(hf_out_juv_lfmm_0.7.filt,nboot = 1000)
+boot5_out_juv_lfmm_0.7_fst <- boot.ppfst(hf_out_juv_lfmm_0.7.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_out_juv_lfmm_0.7_ll <- boot5_out_juv_lfmm_0.7_fst$ll
+```
+
+```{r}
+gindF_out_juv_lfmm_0.7.fst.mat.triN <- as.matrix(fst_out_juv_lfmm_0.7.mat)
+colnames(gindF_out_juv_lfmm_0.7.fst.mat.triN) <- pop_order_juv
+rownames(gindF_out_juv_lfmm_0.7.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_out_juv_lfmm_0.7 <- melt(gindF_out_juv_lfmm_0.7.fst.mat.triN, na.rm =TRUE)
+round(gindF_out_juv_lfmm_0.7.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_out_juv_lfmm_0.7$value)
+```
+
+```{r}
+#Plotting Pairwise fst
+out_juv_lfmm_0.7 <- ggplot(data = meltedN_out_juv_lfmm_0.7, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "blue1", name="FST")  +
+  ggtitle(expression(atop("Pairwise FST, WC (1984) juv_lfmm_0.7 outlier SNPs", atop(italic("N = 120, L = 30"), ""))))+
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1),axis.text.y = element_text(size = 12)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =14), legend.title = element_text(size =14)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+out_juv_lfmm_0.7
+```
+
+## PCA 
+
+```{r}
+library("PCAviz")  #Visualizing output of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Create color scheme
+cols_juv_lfmm_0.7 = c("blue1","lightblue","darkblue","red","red3","darkred")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv_lfmm_0.7 <- scaleGen(rad_out_juv_lfmm_0.7.filt, NA.method = "mean")
+out_juv_lfmm_0.7_pca <- dudi.pca(x_out_juv_lfmm_0.7, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv_lfmm_0.7 <- round((out_juv_lfmm_0.7_pca$eig / (sum(out_juv_lfmm_0.7_pca$eig))) * 100, 2)
+
+pca_dat_out_juv_lfmm_0.7 <- as.data.frame(out_juv_lfmm_0.7_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv_lfmm_0.7.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3")))
+
+
+ggplot(data = pca_dat_out_juv_lfmm_0.7) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv_lfmm_0.7[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv_lfmm_0.7[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+
+pcaadapt + outflank outliers
+
+**Make genind object**
+
+```{r}
+# VCF file with juv_db SNP dataset
+my_vcf_out_juv_db <- read.vcfR("outlierloci_juv_db.recode.vcf")
+```
+
+```{r}
+rad_out_juv_db.filt <- vcfR2genind(my_vcf_out_juv_db, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_out_juv_db.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_out_juv_db.filt <- genind2hierfstat(rad_out_juv_db.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_out_juv_db.mat <- pairwise.WCfst(hf_out_juv_db.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_out_juv_db_fst <- boot.ppfst(hf_out_juv_db.filt,nboot = 1000)
+boot5_out_juv_db_fst <- boot.ppfst(hf_out_juv_db.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_out_juv_db_ll <- boot5_out_juv_db_fst$ll
+```
+
+```{r}
+gindF_out_juv_db.fst.mat.triN <- as.matrix(fst_out_juv_db.mat)
+colnames(gindF_out_juv_db.fst.mat.triN) <- pop_order_juv
+rownames(gindF_out_juv_db.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_out_juv_db <- melt(gindF_out_juv_db.fst.mat.triN, na.rm =TRUE)
+round(gindF_out_juv_db.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_out_juv_db$value)
+```
+
+```{r}
+#Plotting Pairwise fst
+out_juv_db <- ggplot(data = meltedN_out_juv_db, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "blue1", name="FST")  +
+  ggtitle(expression(atop("Pairwise FST, WC (1984) juv_db outlier SNPs", atop(italic("N = 120, L = 322"), ""))))+
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1),axis.text.y = element_text(size = 12)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =14), legend.title = element_text(size =14)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+out_juv_db
+```
+
+## PCA 
+
+```{r}
+library("PCAviz")  #Visualizing output of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Create color scheme
+cols_juv_db = c("blue1","lightblue","darkblue","red","red3","darkred")
+```
+
+```{r}
+# Plot a PCA for the all outlier loci
+x_out_juv_db <- scaleGen(rad_out_juv_db.filt, NA.method = "mean")
+out_juv_db_pca <- dudi.pca(x_out_juv_db, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_out_juv_db <- round((out_juv_db_pca$eig / (sum(out_juv_db_pca$eig))) * 100, 2)
+
+pca_dat_out_juv_db <- as.data.frame(out_juv_db_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_out_juv_db.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3")))
+
+
+ggplot(data = pca_dat_out_juv_db) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_out_juv_db[1], "%"), y = paste("", "Axis 2: ", eig_percent_out_juv_db[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+
+### All SNPs
+
+```{r}
+# VCF file with juv SNP dataset
+my_vcf_all_juv <- read.vcfR("../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf")
+```
+
+```{r}
+rad_all_juv.filt <- vcfR2genind(my_vcf_all_juv, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_all_juv.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_all_juv.filt <- genind2hierfstat(rad_all_juv.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_all_juv.mat <- pairwise.WCfst(hf_all_juv.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_all_juv_fst <- boot.ppfst(hf_all_juv.filt,nboot = 1000)
+boot5_all_juv_fst <- boot.ppfst(hf_all_juv.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_all_juv_ll <- boot5_all_juv_fst$ll
+```
+
+```{r}
+gindF_all_juv.fst.mat.triN <- as.matrix(fst_all_juv.mat)
+colnames(gindF_all_juv.fst.mat.triN) <- pop_order_juv
+rownames(gindF_all_juv.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_all_juv <- melt(gindF_all_juv.fst.mat.triN, na.rm =TRUE)
+round(gindF_all_juv.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_all_juv$value)
+```
+
+```{r}
+#Plotting Pairwise fst
+all_juv <- ggplot(data = meltedN_all_juv, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "blue1", name="FST")  +
+  ggtitle(expression(atop("Pairwise FST, WC (1984) juv alllier SNPs", atop(italic("N = 120, L = 346"), ""))))+
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1),axis.text.y = element_text(size = 12)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =14), legend.title = element_text(size =14)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+all_juv
+```
+
+## PCA 
+
+```{r}
+library("PCAviz")  #Visualizing allput of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Create color scheme
+cols_juv = c("blue1","lightblue","darkblue","red","red3","darkred")
+```
+
+```{r}
+# Plot a PCA for all loci
+x_all_juv <- scaleGen(rad_all_juv.filt, NA.method = "mean")
+all_juv_pca <- dudi.pca(x_all_juv, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_all_juv <- round((all_juv_pca$eig / (sum(all_juv_pca$eig))) * 100, 2)
+
+pca_dat_all_juv <- as.data.frame(all_juv_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_all_juv.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Con1", "Con2", "Con3", "Hi1", "Hi2", "Hi3")))
+
+
+ggplot(data = pca_dat_all_juv) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_minimal() +
+    labs(x = paste("", "Axis 1: ", eig_percent_all_juv[1], "%"), y = paste("", "Axis 2: ", eig_percent_all_juv[2], "%")) +
+    coord_fixed(ratio = 1)
+```
+
+### Neutral SNPs
+
+$ vcftools --vcf ../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf --exclude-positions outliers_juv_lfmm2_0.6.loci.txt --recode --recode-INFO-all --out neutralloci_juv 
+
+```{r}
+# VCF file with juv SNP dataset
+my_vcf_neut_juv <- read.vcfR("neutralloci_juv.recode.vcf")
+```
+
+```{r}
+rad_neut_juv.filt <- vcfR2genind(my_vcf_neut_juv, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_neut_juv.filt
+```
+
+**Make hierfstat object**
+
+```{r}
+hf_neut_juv.filt <- genind2hierfstat(rad_neut_juv.filt, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+```
+
+## Pairwise Fst  
+
+```{r}
+fst_neut_juv.mat <- pairwise.WCfst(hf_neut_juv.filt)
+```
+
+```{r}
+# get bootstrap confidence values for Fst
+boot_neut_juv_fst <- boot.ppfst(hf_neut_juv.filt,nboot = 1000)
+boot5_neut_juv_fst <- boot.ppfst(hf_neut_juv.filt,nboot = 1000,quant = 0.5)
+```
+
+```{r}
+Fst_neut_juv_ll <- boot5_neut_juv_fst$ll
+```
+
+```{r}
+gindF_neut_juv.fst.mat.triN <- as.matrix(fst_neut_juv.mat)
+colnames(gindF_neut_juv.fst.mat.triN) <- pop_order_juv
+rownames(gindF_neut_juv.fst.mat.triN) <- pop_order_juv
+```
+
+```{r}
+meltedN_neut_juv <- melt(gindF_neut_juv.fst.mat.triN, na.rm =TRUE)
+round(gindF_neut_juv.fst.mat.triN,4)
+```
+
+```{r}
+summary(meltedN_neut_juv$value)
+```
+
+```{r}
+#Plotting Pairwise fst
+neut_juv <- ggplot(data = meltedN_neut_juv, aes(Var2, Var1, fill = value))+ geom_tile(color = "white")+ 
+  scale_fill_gradient(low = "white", high = "blue1", name="FST")  +
+  ggtitle(expression(atop("Pairwise FST, WC (1984) juv Neutral SNPs", atop(italic("N = 120, L = 47,313"), ""))))+
+  labs( x = "Treatment", y = "Treatment") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1),axis.text.y = element_text(size = 12)) + 
+  theme(axis.title = element_text(size = 12),legend.text = element_text(size =14), legend.title = element_text(size =14)) +
+  theme(plot.title = element_text(size = 14)) +
+coord_fixed()
+neut_juv
+```
+
+
+
+## PCA 
+
+```{r}
+rad_neut_juv_treat.filt <- vcfR2genind(my_vcf_neut_juv, strata = strata_juv, pop = c(rep("Control", 60),rep("Stress", 60)))
+
+rad_neut_juv_treat.filt
+```
+
+```{r}
+library("PCAviz")  #Visualizing neutput of PCA
+library("cowplot") #Used with PCAviz
+```
+
+```{r}
+# Plot a PCA for neut loci
+x_neut_juv <- scaleGen(rad_neut_juv_treat.filt, NA.method = "mean")
+neut_juv_pca <- dudi.pca(x_neut_juv, center = FALSE, scale = FALSE, scannf = FALSE, nf = 4)
+eig_percent_neut_juv <- round((neut_juv_pca$eig / (sum(neut_juv_pca$eig))) * 100, 2)
+
+pca_dat_neut_juv <- as.data.frame(neut_juv_pca$li) %>%
+                    rownames_to_column(var = "ind") %>%
+                    cbind(pop = pop(rad_neut_juv_treat.filt)) %>%
+                    mutate(pop = factor(pop, levels = c("Control", "Stress")))
+
+# Create color scheme
+cols_juv <- c("#56B4E9", "orange")
+
+# Plot a PCA for neut loci
+ggplot(data = pca_dat_neut_juv) +
+    geom_point(aes(x = Axis1, y = Axis2, colour = pop), size = 3, alpha = 0.8) +
+    scale_colour_manual(values = cols_juv) +
+    theme_bw() + 
+    labs(x = paste("", "Axis 1: ", eig_percent_neut_juv[1], "%"), y = paste("", "Axis 2: ", eig_percent_neut_juv[2], "%")) +
+    coord_fixed(ratio = 1) +
+  theme(legend.title = element_blank())
+ggsave("juv_pca_neutral.pdf", width = 7, height = 6, units = "in")
+```
+
+
+## Manhattan Plot
+
+```{r}
+# Calculate basic stats for each population
+pop_stats_out_juv <- rad_out_juv_lfmm_0.6.filt %>%
+  genind2hierfstat() %>%
+  basic.stats()
+
+global_stats_out_juv <- pop_stats_out_juv$perloc %>%
+  rownames_to_column(var = "locus") %>%
+  extract(locus, c("chrom", "pos"), "NC_(\\d+)_1_(\\d+)", remove = FALSE) %>%
+  as_tibble() %>%
+  mutate(chrom = as.integer(chrom), pos = as.integer(pos)) %>%
+  dplyr::select(locus, chrom, pos, Ho, Hs, Fst, Fis)
+
+# Adding columns to specify loci as outliers 
+global_stats_out_juv$juv_sel_outlier <- TRUE
+global_stats_out_juv$shared_sel_outlier <- FALSE
+```
+
+```{r}
+# Calculate basic stats for each population
+pop_stats_neut_juv <- rad_neut_juv.filt %>%
+  genind2hierfstat() %>%
+  basic.stats()
+
+global_stats_neut_juv <- pop_stats_neut_juv$perloc %>%
+  rownames_to_column(var = "locus") %>%
+  extract(locus, c("chrom", "pos"), "NC_(\\d+)_1_(\\d+)", remove = FALSE) %>%
+  as_tibble() %>%
+  mutate(chrom = as.integer(chrom), pos = as.integer(pos)) %>%
+  dplyr::select(locus, chrom, pos, Ho, Hs, Fst, Fis)
+
+# Adding columns to specify loci as outliers 
+global_stats_neut_juv$juv_sel_outlier <- FALSE
+global_stats_out_juv$shared_sel_outlier <- FALSE
+```
+
+Combining the tables together 
+
+```{r}
+combined_df_juv <- bind_rows(global_stats_out_juv, global_stats_neut_juv)
+```
+
+```{r}
+# Change naming of chromosomes
+chr_labs <- c("Chr 1", "Chr 2", "Chr 3", "Chr 4", "Chr 5", "Chr 6", "Chr 7", "Chr 8", "Chr 9","Chr 10")
+names(chr_labs) <- c(35780, 35781,35782, 35783, 35784, 35785, 35786, 35787, 35788, 35789)
+
+# Create the plot
+p <- combined_df_juv %>%
+  mutate(pos_mb = pos / 1000000) %>%
+  ggplot(aes(x = pos_mb, y = Fst)) +
+  # Add grey points for non-outliers
+  geom_point(color = "grey", size = 1) +
+  # Add orange points for outliers
+  geom_point(data = . %>% filter(juv_sel_outlier == TRUE), 
+             aes(color = "Post-settlement candidate loci"), size = 2) +
+  facet_wrap(~chrom, scales = "free_x", nrow = 1, labeller = labeller(chrom = chr_labs)) +
+  theme_minimal() +
+  scale_color_manual(values = c("Post-settlement candidate loci" = "cyan4"),
+                     name = NULL) +
+  labs(x = "Position (Mb)", y = expression(F[ST])) +
+  scale_y_continuous(labels = scales::number_format(accuracy = 0.01)) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        strip.background = element_blank(),
+        strip.text.x = element_text(size = 10, face = "bold"),
+        panel.spacing = unit(0.1, "lines"),
+        legend.position = "right")
+ggsave("juv_global_fst.pdf", width = 12.5, height = 5, units = "in")
+
+# Display the plot
+print(p)
+```
+
+Repeating with shared loci between larvae and juveniles 
+
+```{r}
+# VCF file with juv SNP dataset
+my_vcf_shared <- read.vcfR("~/RISG_CADO/Juv_Larv_Comparison/CADO_shared_0.6_FDR05_intervals.recode.vcf")
+```
+
+```{r}
+rad_out_shared.filt <- vcfR2genind(my_vcf_shared, strata = strata_juv, pop = c(rep("Con1", 20),rep("Con2", 20),rep("Con3", 20),rep("Hi1", 20),rep("Hi2", 20), rep("Hi3",20)))
+
+rad_out_shared.filt
+```
+
+```{r}
+# Calculate basic stats for each population
+pop_stats_shared <- rad_out_shared.filt %>%
+  genind2hierfstat() %>%
+  basic.stats()
+
+global_stats_shared <- pop_stats_shared$perloc %>%
+  rownames_to_column(var = "locus") %>%
+  extract(locus, c("chrom", "pos"), "NC_(\\d+)_1_(\\d+)", remove = FALSE) %>%
+  as_tibble() %>%
+  mutate(chrom = as.integer(chrom), pos = as.integer(pos)) %>%
+  dplyr::select(locus, chrom, pos, Ho, Hs, Fst, Fis)
+
+# Adding columns to specify loci as outliers 
+global_stats_shared$juv_sel_outlier <- FALSE
+global_stats_shared$shared_sel_outlier <- TRUE
+```
+
+Combining the tables together 
+
+```{r}
+combined_df_shared <- bind_rows(global_stats_out_juv, global_stats_neut_juv, global_stats_shared)
+```
+
+```{r}
+# Change naming of chromosomes
+chr_labs <- c("Chr 1", "Chr 2", "Chr 3", "Chr 4", "Chr 5", "Chr 6", "Chr 7", "Chr 8", "Chr 9","Chr 10")
+names(chr_labs) <- c(35780, 35781,35782, 35783, 35784, 35785, 35786, 35787, 35788, 35789)
+
+# Create the plot
+p <- combined_df_shared %>%
+  mutate(pos_mb = pos / 1000000) %>%
+  ggplot(aes(x = pos_mb, y = Fst)) +
+  # Add grey points for non-outliers
+  geom_point(color = "grey", size = 1) +
+  # Add orange points for juv_sel_outlier
+  geom_point(data = . %>% filter(juv_sel_outlier == TRUE), 
+             aes(color = "Post-settlement candidate loci"), size = 2) +
+  # Add green points for shared_sel_outlier
+  geom_point(data = . %>% filter(shared_sel_outlier == TRUE),
+             aes(color = "Shared candidate loci"), size = 2) +
+  facet_wrap(~chrom, scales = "free_x", nrow = 1, labeller = labeller(chrom = chr_labs)) +
+  theme_minimal() +
+  scale_color_manual(values = c("Post-settlement candidate loci" = "orange",
+                                "Shared candidate loci" = "green4"),
+                     name = NULL) +
+  labs(x = "Position (Mb)", y = expression(F[ST])) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        strip.background = element_blank(),
+        strip.text.x = element_text(size = 10, face = "bold"),
+        panel.spacing = unit(0.1, "lines"),
+        legend.position = "bottom")
+
+# Display the plot
+print(p)
+```
+
+
+## All SNPs
+
+Should go back and look at these across the genome as well to see chromosomal locations of selection in the Stress treatment compared to the Control.
+
+### Nucleotide diversity
+
+In PATH: `/home/azyck/RISG_CADO/juv_ddocent/Juv_Selection_Analysis`
+
+```{bash}
+mkdir nucleotide_diversity
+```
+
+```{bash}
+cd nucleotide diversity
+```
+
+I have a file from the dDocent run with all sample names and replicate designations. I'm going to use this to split the VCF into replicates for both the Control and Stress treatments.
+
+```{bash}
+cp ../../popmap .
+```
+
+```{bash}
+# Control samples
+awk -F"\t" '$2 ~ /^Con1/ {print $1}' popmap > Control1_samples.txt
+head Control1_samples.txt 
+
+awk -F"\t" '$2 ~ /^Con2/ {print $1}' popmap > Control2_samples.txt
+head Control2_samples.txt 
+
+awk -F"\t" '$2 ~ /^Con3/ {print $1}' popmap > Control3_samples.txt
+head Control3_samples.txt 
+
+# Stress samples
+awk -F"\t" '$2 ~ /^Hi1/ {print $1}' popmap > Stress1_samples.txt
+head Stress1_samples.txt
+
+awk -F"\t" '$2 ~ /^Hi2/ {print $1}' popmap > Stress2_samples.txt
+head Stress2_samples.txt
+
+awk -F"\t" '$2 ~ /^Hi3/ {print $1}' popmap > Stress3_samples.txt
+head Stress3_samples.txt
+```
+
+Now, filter the vcf so it only keeps the Control samples
+
+```{bash}
+vcftools --vcf ../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf --keep Control1_samples.txt --recode --recode-INFO-all --out Control1
+
+vcftools --vcf ../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf --keep Control2_samples.txt --recode --recode-INFO-all --out Control2
+
+vcftools --vcf ../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf --keep Control3_samples.txt --recode --recode-INFO-all --out Control3
+```
+
+and Stress samples
+
+```{bash}
+vcftools --vcf ../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf --keep Stress1_samples.txt --recode --recode-INFO-all --out Stress1
+
+vcftools --vcf ../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf --keep Stress2_samples.txt --recode --recode-INFO-all --out Stress2
+
+vcftools --vcf ../SNP.Juvdp10mafMIp9g9nDNAmaf052A.recode.vcf --keep Stress3_samples.txt --recode --recode-INFO-all --out Stress3
+```
+
+**Calculate Nucleotide Diversity**
+
+Use sliding window analysis for each group (10kb windows recommended):
+
+```{bash}
+# Control group π
+vcftools --vcf Control1.recode.vcf --window-pi 10000 --out Control1_10kb
+
+vcftools --vcf Control2.recode.vcf --window-pi 10000 --out Control2_10kb
+
+vcftools --vcf Control3.recode.vcf --window-pi 10000 --out Control3_10kb
+
+# Stress group π
+vcftools --vcf Stress1.recode.vcf --window-pi 10000 --out Stress1_10kb
+
+vcftools --vcf Stress2.recode.vcf --window-pi 10000 --out Stress2_10kb
+
+vcftools --vcf Stress3.recode.vcf --window-pi 10000 --out Stress3_10kb
+```
+
+```{bash}
+# Combining the replicates for each treatment into one, with Pop (replicate) and Group (treatment) columns added
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_VARIANTS\tPI\tPOP\tGROUP")  <(mawk '{if (NR>1)print $0 "\tCON1\tCONTROL"}' Control1_10kb.windowed.pi)   <(mawk '{if (NR>1)print $0 "\tCON2\tCONTROL"}' Control2_10kb.windowed.pi) <(mawk '{if (NR>1)print $0 "\tCON3\tCONTROL"}' Control3_10kb.windowed.pi) > Control.combined.windowed.pi
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_VARIANTS\tPI\tPOP\tGROUP")  <(mawk '{if (NR>1)print $0 "\tHI1\tSTRESS"}' Stress1_10kb.windowed.pi)   <(mawk '{if (NR>1)print $0 "\tHI2\tSTRESS"}' Stress2_10kb.windowed.pi) <(mawk '{if (NR>1)print $0 "\tHI3\tSTRESS"}' Stress3_10kb.windowed.pi) > Stress.combined.windowed.pi
+
+# Combining all into one meta file
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_VARIANTS\tPI\tPOP\tGROUP") <(mawk '{if (NR>1)print $0 "\tCON1\tCONTROL"}' Control1_10kb.windowed.pi)   <(mawk '{if (NR>1)print $0 "\tCON2\tCONTROL"}' Control2_10kb.windowed.pi) <(mawk '{if (NR>1)print $0 "\tCON3\tCONTROL"}' Control3_10kb.windowed.pi) <(mawk '{if (NR>1)print $0 "\tHI1\tSTRESS"}' Stress1_10kb.windowed.pi)   <(mawk '{if (NR>1)print $0 "\tHI2\tSTRESS"}' Stress2_10kb.windowed.pi) <(mawk '{if (NR>1)print $0 "\tHI3\tSTRESS"}' Stress3_10kb.windowed.pi) > all.windowed.pi
+```
+
+This next command merges overlapping intervals in the treatment π file and, for each merged region, calculates the mean number of variants and mean π, and keeps the first group label, producing a summary file
+
+```{bash}
+bedtools merge -i <(mawk '!/CHR/' Control.combined.windowed.pi | sort -k1,1 -k2,2n ) -c 4,5,7 -d -1 -o mean,mean,first > mean.Control.windowed.pi
+
+bedtools merge -i <(mawk '!/CHR/' Stress.combined.windowed.pi | sort -k1,1 -k2,2n ) -c 4,5,7 -d -1 -o mean,mean,first > mean.Stress.windowed.pi
+```
+
+```{bash}
+# Adding headers
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_VARIANTS\tPI\tGROUP") mean.Control.windowed.pi > mean.Control.windowed.pi.txt
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_VARIANTS\tPI\tGROUP") mean.Stress.windowed.pi > mean.Stress.windowed.pi.txt
+```
+
+```{bash}
+# Combining into one meta file
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_VARIANTS\tPI\tGROUP") mean.Control.windowed.pi mean.Stress.windowed.pi > mean.treat.windowed.pi
+```
+
+**Compare Diversity Between Treatments**
+
+```{r}
+prefix.I <- "../nucleotide_diversity/"
+```
+
+```{r}
+pi.all.dataframe<-read.table(paste(prefix.I,"all.windowed.pi", sep=""), sep="\t", header=T)
+pi.all.dataframe$GROUP <- factor(pi.all.dataframe$GROUP, levels=c("CONTROL", "STRESS" ))
+pi.all.dataframe$POP <- gsub("^HI", "STR", pi.all.dataframe$POP)
+pi.all.dataframe$POP <- factor(
+  pi.all.dataframe$POP,
+  levels = c("CON1", "CON2", "CON3", "STR1", "STR2", "STR3")
+)
+
+
+filename <- paste(prefix.I,"mean.treat.windowed.pi", sep="")
+pi.treat.mean.dataframe<-read.table(filename, sep="\t", header=T)
+pi.treat.mean.dataframe$GROUP <- factor(pi.treat.mean.dataframe$GROUP, levels=c("CONTROL", "STRESS" ))
+```
+
+Plotting
+
+```{r}
+bd.pi <-ggplot(pi.all.dataframe, aes(x=PI,y = POP))+
+  #geom_violin(aes(color=GROUP,fill= GROUP)) +
+  #stat_summary(fun=mean, geom="point", shape=23, size=4)+
+  #geom_dotplot(binaxis='y', stackdir='center', dotsize=0.005)+
+  geom_boxplot(aes(fill=GROUP), width=0.75,outlier.shape = 23, outlier.color = "black")+
+  geom_vline(xintercept =mean(pi.all.dataframe$PI),linetype = "dashed") +
+  stat_summary(fun=mean, geom="point", shape=23, size=2)+
+  scale_fill_manual(values=c("#56B4E9", "orange"))+
+  scale_color_manual(values=c("#56B4E9", "orange"))+
+  scale_y_discrete(limits = rev(levels(pi.all.dataframe$POP)))+
+  #ylab("Population/Line")+
+  labs(x=expression(pi)) +
+  ggtitle("Control vs. Stress Nucleotide Diversity")+
+  theme_classic() +
+  theme(axis.title.y = element_blank()) + 
+  theme(legend.position = "none")
+bd.pi
+```
+
+```{r}
+bc.pi <-ggplot(pi.treat.mean.dataframe, aes(x=PI,y = GROUP))+
+  geom_violin(aes(color=GROUP,fill= GROUP)) +
+  geom_boxplot(aes(fill=GROUP), width=0.1,outlier.shape = 23, outlier.color = "black")+
+  stat_summary(fun=mean, geom="point", shape=23, size=2)+
+  scale_fill_manual(values=c("#56B4E9", "orange"))+
+  scale_color_manual(values=c("#56B4E9", "orange"))+
+  scale_y_discrete(limits = rev(levels(pi.all.dataframe$GROUP)))+
+  #ylab("Origin")+
+  ggtitle("Mean Control vs. Stress Nucleotide Diversity")+
+  theme_classic() +
+  labs(x=expression(pi)) +
+  theme(legend.position = c(0.85, 0.5), axis.title.y = element_blank(),axis.text.y=element_blank())
+bc.pi
+```
+
+Running t-tests
+
+```{r}
+library(infer)
+library(plotrix)
+```
+
+```{r}
+pi.all.dataframe %>% t_test(formula = PI ~ GROUP, alternative = "two.sided",order = c("CONTROL", "STRESS"))
+```
+
+```{r}
+pi.all.dataframe %>% t_test(formula = PI ~ GROUP, alternative = "greater", order = c("CONTROL", "STRESS"))
+```
+
+**Calculating summary statistics**
+
+```{r}
+group_by(pi.all.dataframe, GROUP) %>%
+  dplyr::summarise(
+    count = n(),
+    mean = mean(PI, na.rm = TRUE),
+    sd = sd(PI, na.rm = TRUE),
+    se=std.error(PI, na.rm = TRUE) )
+```
+
+```{r}
+group_by(pi.all.dataframe, POP) %>%
+  dplyr::summarise(
+    count = n(),
+    mean = mean(PI, na.rm = TRUE),
+    sd = sd(PI, na.rm = TRUE),
+    se=std.error(PI, na.rm = TRUE) )
+```
+
+**Plotting PI across the genome**
+
+```{r}
+filename <- paste(prefix.I,"mean.Control.windowed.pi.txt", sep="")
+cpi <- read.table(filename, header = TRUE)
+filename <- paste(prefix.I,"mean.Stress.windowed.pi.txt", sep="")
+spi <- read.table(filename, header = TRUE)
+
+cpi <- cpi %>% dplyr::rename(CONTROL_PI= PI)
+spi <- spi %>% dplyr::rename(STRESS_PI= PI)
+c.s.pi <- plyr::join(cpi,spi, by =c("CHROM", "BIN_START"),type="full")
+
+
+c.s.pi$DIFF <- c.s.pi$CONTROL_PI - c.s.pi$STRESS_PI
+c.s.pi$BIN_START <- c.s.pi$BIN_START -1
+```
+
+```{r}
+SNP.pi<-c(1:(nrow(c.s.pi)))
+mydf.pi<-data.frame(SNP.pi,c.s.pi)
+mydf.pi$CHR <- mydf.pi$CHROM
+mydf.pi %>% 
+  mutate(CHR = str_replace(CHR, "NC_035780.1", "1")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035781.1", "2")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035782.1", "3")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035783.1", "4")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035784.1", "5")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035785.1", "6")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035786.1", "7")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035787.1", "8")) %>%
+  mutate(CHR = str_replace(CHR, "NC_035788.1", "9")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035789.1", "10"))  -> mydf.pi
+mydf.pi$CHR <- as.numeric(mydf.pi$CHR)  
+
+m2.pi <-ggman::ggman(mydf.pi,chrom="CHR",bp="BIN_START",pvalue="CONTROL_PI",snp="SNP.pi",logTransform=FALSE,sigLine=NA, relative.positions = TRUE)
+```
+
+Visualizing pi across the genome for the Control treatment:
+
+```{r}
+dfm.pi <- m2.pi[[1]]
+dfm.pi$chrom_alt <- factor(dfm.pi$chrom_alt, levels=c(0,1))
+
+dfmsplit.pi <- split(dfm.pi, dfm.pi$chrom)
+xbreaks <- sapply(dfmsplit.pi,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+m2.pi.total <- ggplot(dfm.pi, aes(x= index, y=marker, colour = as.factor(chrom_alt)))+
+  geom_point(size=0.5, aes(alpha=0.33))+  
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm.pi$index)+10)) +
+  guides(colour = FALSE,alpha=FALSE) +
+  scale_y_continuous(expand = c(0,0),limits=c(0,max(dfm.pi$marker+0.001,na.rm=TRUE)))+
+  labs(x = "Chromosome") +
+  ggtitle("Control Treatment") +theme_classic()+
+  labs(y=expression(pi)) +
+  scale_color_manual(values=c("#56B4E9","dark blue")) 
+
+m2.pi.total
+```
+
+```{r}
+m2.pi <-m2.pi.total
+
+
+
+m3.pi <-ggman::ggman(mydf.pi,chrom="CHR",bp="BIN_START",pvalue="STRESS_PI",snp="SNP.pi",logTransform=FALSE,sigLine=NA, ymax=1, relative.positions = TRUE)
+```
+
+Visualizing pi across the genome for the Stress treatment:
+
+```{r}
+dfm3.pi <- m3.pi[[1]]
+dfm3.pi$chrom_alt <- factor(dfm3.pi$chrom_alt, levels=c(0,1))
+
+dfmsplit <- split(dfm3.pi, dfm3.pi$chrom)
+xbreaks <- sapply(dfmsplit,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+m3.pi.total <- ggplot(dfm3.pi, aes(x= index, y=marker, colour = as.factor(chrom_alt)))+
+  geom_point(size=0.5, aes(alpha=0.33))+  
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm3.pi$index)+10)) +
+  guides(colour = FALSE,alpha=FALSE) +
+  scale_y_continuous(expand = c(0,0),limits=c(0,max(dfm3.pi$marker+0.001,na.rm=TRUE)))+
+  #scale_alpha_continuous(range=c(0.1,0.95))+
+  labs(x = "Chromosome") +
+  ggtitle("Stress Treatment") +theme_classic()+
+  labs(y=expression(pi)) + 
+  scale_color_manual(values=c("orange", "#D55E00"))
+
+m3.pi.total
+```
+
+```{r}
+m3.pi <-m3.pi.total
+
+
+md4.pi <-ggman::ggman(mydf.pi,chrom="CHR",bp="BIN_START",pvalue="DIFF",snp="SNP.pi",logTransform=FALSE,sigLine=NA, relative.positions = TRUE)
+```
+
+Visualizing the difference in Pi between the Control and Stress treatments
+
+```{r}
+dfm4.pi <- md4.pi[[1]]
+dfm4.pi$chrom_alt <- factor(dfm4.pi$chrom_alt, levels=c(0,1))
+
+dfmsplit <- split(dfm4.pi, dfm4.pi$chrom)
+xbreaks <- sapply(dfmsplit,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+md4.pi <- ggplot(dfm4.pi, aes(x= index, y=marker, colour = as.factor(chrom_alt),size=(0.1+ abs(marker))^2))+
+  geom_point(alpha=0.85)+  
+  scale_size_continuous(range=c(0.01,1.5))+
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm4.pi$index)+10)) +
+  guides(colour = FALSE,alpha=FALSE,size=FALSE) +
+  scale_y_continuous(expand = c(0,0),limits=c(-0.001,0.001), labels = scales::label_number(accuracy = 0.0001, scale = 1, decimal.mark = ".", big.mark = ""))+
+  #scale_alpha_continuous(range=c(0.1,0.95))+
+  labs(x = "Chromosome") +
+  ggtitle("Control - Stress") +theme_classic()+
+  labs(y=expression("Difference in " ~ pi)) + 
+  scale_color_manual(values=c("#009E73", "#00543d"))
+
+md4.pi
+```
+
+```{r}
+png(filename=paste(prefix.I,"Figure.pi_comparison.png", sep=""), type="cairo",units="px", width=5600, height=3000, res=300, bg="transparent")
+
+layout <- "
+AAADD
+BBBDD
+CCCEE
+CCCEE
+"
+m2.pi.total+m3.pi.total+md4.pi+bd.pi+bc.pi +patchwork::plot_layout(design=layout, guides = "collect") + patchwork::plot_annotation(tag_levels = 'A')
+```
+
+Link to view plot: https://github.com/amyzyck/RISG_LarvJuvCADO/blob/main/Output/Figures/Figure.pi_comparison.png
+
+
+### Tajima's D
+
+In PATH: `/home/azyck/RISG_CADO/juv_ddocent/Juv_Selection_Analysis`
+
+```{bash}
+mkdir tajima
+```
+
+```{bash}
+cd tajima
+```
+
+```{bash}
+ln -s ../nucleotide_diversity/Control*.recode.vcf .
+ln -s ../nucleotide_diversity/Stress*.recode.vcf .
+```
+
+```{bash}
+conda create -n vk python=3.8 numpy scipy
+conda activate vk
+pip install VCF-kit
+```
+
+Calculating Tajima's D for each replicate. The first number is window-size and the second number is step-size
+
+```{bash}
+vk tajima 10000 10000 Control1.recode.vcf > Control1.tajima
+vk tajima 10000 10000 Control2.recode.vcf > Control2.tajima
+vk tajima 10000 10000 Control3.recode.vcf > Control3.tajima
+
+vk tajima 10000 10000 Stress1.recode.vcf > Stress1.tajima
+vk tajima 10000 10000 Stress2.recode.vcf > Stress2.tajima
+vk tajima 10000 10000 Stress3.recode.vcf > Stress3.tajima
+```
+
+The following steps are identical to those above for organizing files and calculating mean windowed values
+
+```{bash}
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_SITES\tN_SNPs\tTAJD\tPOP\tGROUP")  <(mawk '{if (NR>1)print $0 "\tCON1\tCONTROL"}' Control1.tajima)   <(mawk '{if (NR>1)print $0 "\tCON2\tCONTROL"}' Control2.tajima) <(mawk '{if (NR>1)print $0 "\tCON3\tCONTROL"}' Control3.tajima) > Control.windowed.tajima
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_SITES\tN_SNPs\tTAJD\tPOP\tGROUP") <(mawk '{if (NR>1)print $0 "\tHI1\tSTRESS"}' Stress1.tajima)   <(mawk '{if (NR>1)print $0 "\tHI2\tSTRESS"}' Stress2.tajima) <(mawk '{if (NR>1)print $0 "\tHI3\tSTRESS"}' Stress3.tajima) > Stress.windowed.tajima
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_SITES\tN_SNPs\tTAJD\tPOP\tGROUP")  <(mawk '{if (NR>1)print $0 "\tCON1\tCONTROL"}' Control1.tajima)   <(mawk '{if (NR>1)print $0 "\tCON2\tCONTROL"}' Control2.tajima) <(mawk '{if (NR>1)print $0 "\tCON3\tCONTROL"}' Control3.tajima) <(mawk '{if (NR>1)print $0 "\tHI1\tSTRESS"}' Stress1.tajima)   <(mawk '{if (NR>1)print $0 "\tHI2\tSTRESS"}' Stress2.tajima) <(mawk '{if (NR>1)print $0 "\tHI3\tSTRESS"}' Stress3.tajima) > all.windowed.tajima
+```
+
+```{bash}
+bedtools merge -i <(mawk '!/CHR/' Control.windowed.tajima | sort -k1,1 -k2,2n ) -c 4,5,6,8 -d -1 -o mean,mean,mean,first > mean.Control.windowed.tajima
+
+bedtools merge -i <(mawk '!/CHR/' Stress.windowed.tajima | sort -k1,1 -k2,2n ) -c 4,5,6,8 -d -1 -o mean,mean,mean,first > mean.Stress.windowed.tajima
+```
+
+```{bash}
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_SITES\tN_SNPs\tTAJD\tGROUP") mean.Control.windowed.tajima mean.Stress.windowed.tajima > mean.combined.tajima
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_SITES\tN_SNPs\tTAJD\tGROUP") mean.Control.windowed.tajima > mean.Control.windowed.tajima.txt
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tN_SITES\tN_SNPs\tTAJD\tGROUP") mean.Stress.windowed.tajima > mean.Stress.windowed.tajima.txt
+```
+
+```{r}
+prefix.J <- "../tajima/"
+```
+
+```{r}
+tajd.all.dataframe<-read.table(paste(prefix.J,"all.windowed.tajima", sep=""), sep="\t", header=T)
+summary(tajd.all.dataframe)
+```
+
+```{r}
+tajd.all.dataframe$GROUP <- factor(tajd.all.dataframe$GROUP, levels=c("CONTROL", "STRESS"))
+tajd.all.dataframe$POP <- gsub("^HI", "STR", tajd.all.dataframe$POP)
+tajd.all.dataframe$POP <- factor(
+  tajd.all.dataframe$POP,
+  levels = c("CON1", "CON2", "CON3", "STR1", "STR2", "STR3")
+)
+
+
+tajd.all.mean.dataframe<-read.table(paste(prefix.J,"mean.combined.tajima", sep=""), sep="\t", header=T)
+tajd.all.mean.dataframe$GROUP <- factor(tajd.all.mean.dataframe$GROUP, levels=c("CONTROL", "STRESS"))
+summary(tajd.all.mean.dataframe)
+```
+
+Plotting
+
+```{r}
+library(ggtext)
+```
+
+```{r}
+bd.taj <-ggplot(tajd.all.dataframe, aes(x=TAJD,y = POP))+
+  #geom_violin(aes(color=GROUP,fill= GROUP)) +
+  #stat_summary(fun=mean, geom="point", shape=23, size=4)+
+  #geom_dotplot(binaxis='y', stackdir='center', dotsize=0.005)+
+  geom_boxplot(aes(fill=GROUP), width=0.75,outlier.shape = 23, outlier.color = "black")+
+  stat_summary(fun=mean, geom="point", shape=23, size=2)+
+  scale_fill_manual(values=c("#56B4E9", "orange"))+
+  scale_color_manual(values=c("#56B4E9", "orange"))+
+  scale_y_discrete(limits = rev(levels(tajd.all.dataframe$POP)))+
+  #ylab("Population/Line")+
+  ggtitle("Control vs. Stress Tajima's *D*")+
+  theme_classic() +
+  labs(x="Tajima's *D*") +theme(axis.title.x = ggtext::element_markdown(),  axis.title.y = element_blank(), plot.title = ggtext::element_markdown()) +
+  theme(legend.position = "none")
+
+bd.taj <- bd.taj + guides(color = "none", fill ="none")
+bd.taj
+```
+
+```{r}
+bc.taj <-ggplot(tajd.all.mean.dataframe, aes(x=TAJD,y = GROUP))+
+  geom_violin(aes(color=GROUP,fill= GROUP)) +
+  geom_boxplot(aes(fill=GROUP), width=0.1,outlier.shape = 23, outlier.color = "black")+
+  stat_summary(fun=mean, geom="point", shape=23, size=2)+
+  scale_fill_manual(values=c("#56B4E9", "orange"))+
+  scale_color_manual(values=c("#56B4E9", "orange"))+
+  scale_y_discrete(limits = rev(levels(tajd.all.dataframe$GROUP)))+
+  #ylab("Origin")+
+  ggtitle("Mean Control vs. Stress Tajima's *D*")+
+  theme_classic() +
+  labs(x="Tajima's *D*") +
+  theme(legend.position = c(0.1, 0.5), axis.title.y = element_blank(),axis.text.y=element_blank(), plot.title = ggtext::element_markdown(),axis.title.x = ggtext::element_markdown())
+
+bc.taj
+```
+
+t-tests
+
+```{r}
+tajd.all.dataframe %>% t_test(formula = TAJD ~ GROUP, alternative = "two.sided",order = c("CONTROL", "STRESS"))
+```
+
+```{r}
+tajd.all.dataframe %>% t_test(formula = TAJD ~ GROUP, alternative = "greater", order = c("CONTROL", "STRESS"))
+```
+
+Calculating summary statistics
+
+```{r}
+group_by(tajd.all.dataframe, GROUP) %>%
+  dplyr::summarise(
+    count = n(),
+    mean = mean(TAJD, na.rm = TRUE),
+    sd = sd(TAJD, na.rm = TRUE),
+    se=std.error(TAJD, na.rm = TRUE) )
+```
+
+```{r}
+group_by(tajd.all.dataframe, POP) %>%
+  dplyr::summarise(
+    count = n(),
+    mean = mean(TAJD, na.rm = TRUE),
+    sd = sd(TAJD, na.rm = TRUE),
+    se=std.error(TAJD, na.rm = TRUE) )
+```
+
+**Plotting Tajima's D across the genome**
+
+```{r}
+filename <- paste(prefix.J,"mean.Control.windowed.tajima.txt", sep="")
+ctajd <- read.table(filename, header = TRUE)
+filename <- paste(prefix.J,"mean.Stress.windowed.tajima.txt", sep="")
+stajd <- read.table(filename, header = TRUE)
+
+ctajd <- ctajd %>% dplyr::rename(CONTROL_TAJD= TAJD)
+stajd <- stajd %>% dplyr::rename(STRESS_TAJD= TAJD)
+c.s.tajd <- plyr::join(ctajd,stajd, by =c("CHROM", "BIN_START"),type="full")
+
+
+c.s.tajd$DIFF <- c.s.tajd$CONTROL_TAJD - c.s.tajd$STRESS_TAJD
+```
+
+```{r}
+SNP<-c(1:(nrow(c.s.tajd)))
+mydf<-data.frame(SNP,c.s.tajd)
+mydf$CHR <- mydf$CHROM
+mydf %>% 
+  mutate(CHR = str_replace(CHR, "NC_035780.1", "1")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035781.1", "2")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035782.1", "3")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035783.1", "4")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035784.1", "5")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035785.1", "6")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035786.1", "7")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035787.1", "8")) %>%
+  mutate(CHR = str_replace(CHR, "NC_035788.1", "9")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035789.1", "10"))  -> mydf
+mydf$CHR <- as.numeric(mydf$CHR)  
+
+m2 <-ggman::ggman(mydf,chrom="CHR",bp="BIN_START",pvalue="CONTROL_TAJD",snp="SNP",logTransform=FALSE,sigLine=NA, relative.positions = TRUE)
+```
+
+```{r}
+dfm <- m2[[1]]
+dfm$chrom_alt <- factor(dfm$chrom_alt, levels=c(0,1))
+
+dfmsplit <- split(dfm, dfm$chrom)
+xbreaks <- sapply(dfmsplit,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+m2.total <- ggplot(dfm, aes(x= index, y=marker, colour = as.factor(chrom_alt)))+
+  geom_point(size=0.5, aes(alpha=0.33))+  
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm$index)+10)) +
+  guides(colour = "none",alpha="none") +
+  scale_y_continuous(expand = c(0,0),limits=c(min(dfm$marker-0.001,na.rm=TRUE),max(dfm$marker+0.001,na.rm=TRUE)))+
+  labs(x = "Chromosome") +
+  ggtitle("Control Treatment") +theme_classic()+
+  labs(y="Tajima's *D*") +theme(axis.title.y = ggtext::element_markdown())+ 
+  scale_color_manual(values=c("#56B4E9","dark blue")) 
+m2.taj <-m2.total
+
+m2.taj
+```
+
+```{r}
+m3 <-ggman::ggman(mydf,chrom="CHR",bp="BIN_START",pvalue="STRESS_TAJD",snp="SNP",logTransform=FALSE,sigLine=NA, ymax=1, relative.positions = TRUE)
+```
+
+```{r}
+dfm <- m3[[1]]
+dfm$chrom_alt <- factor(dfm$chrom_alt, levels=c(0,1))
+
+dfmsplit <- split(dfm, dfm$chrom)
+xbreaks <- sapply(dfmsplit,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+m3.total <- ggplot(dfm, aes(x= index, y=marker, colour = as.factor(chrom_alt)))+
+  geom_point(size=0.5, aes(alpha=0.33))+  
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm$index)+10)) +
+  guides(colour = "none",alpha="none") +
+  scale_y_continuous(expand = c(0,0),limits=c(min(dfm$marker-0.001,na.rm=TRUE),max(dfm$marker+0.001,na.rm=TRUE)))+
+  #scale_alpha_continuous(range=c(0.1,0.95))+
+  labs(x = "Chromosome") +
+  ggtitle("Stress Treatment") +theme_classic()+
+  labs(y="Tajima's *D*") +theme(axis.title.y = ggtext::element_markdown())+ 
+  scale_color_manual(values=c("orange", "#D55E00"))
+
+m3.taj <-m3.total
+
+m3.taj
+```
+
+```{r}
+md4 <-ggman::ggman(mydf,chrom="CHR",bp="BIN_START",pvalue="DIFF",snp="SNP",logTransform=FALSE,sigLine=NA, relative.positions = TRUE)
+```
+
+```{r}
+y_range <- range(dfm$marker, na.rm = TRUE)
+y_buffer <- 0.1 * diff(y_range)  # 10% buffer
+
+md4.taj <- ggplot(dfm, aes(x= index, y=marker, colour = as.factor(chrom_alt), size=(0.1 + abs(marker))^2)) +
+  geom_point(alpha=0.85) +
+  scale_size_continuous(range = c(0.01, 1.5)) +
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks), expand = c(0, 0), limits = c(0, max(dfm$index) + 10)) +
+  guides(colour = "none", alpha = "none", size = "none") +
+  scale_y_continuous(expand = c(0, 0), limits = c(y_range[1] - y_buffer, y_range[2] + y_buffer)) +
+  labs(x = "Chromosome") +
+  ggtitle("Control - Stress") + theme_classic() +
+  labs(y = "Difference in Tajima's *D*") + theme(axis.title.y = ggtext::element_markdown()) +
+  scale_color_manual(values = c("#009E73", "#00543d"))
+md4.taj
+```
+
+
+
+```{r}
+png(filename=paste(prefix.J,"Figure.TajimasD.Comparison.Con.Str.png", sep=""), type="cairo",units="px", width=5600, height=3000, res=300, bg="transparent")
+layout <- "
+AAADD
+BBBDD
+CCCEE
+CCCEE
+"
+#######(m2/m3/md4 | bd/bc) +plot_layout(design=layout)
+m2.taj+m3.taj+md4.taj+bd.taj+bc.taj+patchwork::plot_layout(design=layout, guides = "collect") + patchwork::plot_annotation(tag_levels = 'A')
+```
+
+
+### Heterozygosity
+
+```{bash}
+conda activate vk
+conda install bioconda::vcflib
+```
+
+Back in PATH: `/home/azyck/RISG_CADO/juv_ddocent/Juv_Selection_Analysis`
+
+```{bash}
+mkdir heterozygosity
+cd heterozygosity
+```
+
+```{bash}
+ln -s ../nucleotide_diversity/Control*.recode.vcf .
+ln -s ../nucleotide_diversity/Stress*.recode.vcf .
+```
+
+Calculating heterozygosity using popStats
+
+```{bash}
+popStats -y GT -t 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 --file Control1.recode.vcf  > Control1.popstats
+popStats -y GT -t 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 --file Control2.recode.vcf  > Control2.popstats
+popStats -y GT -t 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 --file Control3.recode.vcf  > Control3.popstats
+
+popStats -y GT -t 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 --file Stress1.recode.vcf  > Stress1.popstats
+popStats -y GT -t 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 --file Stress2.recode.vcf  > Stress2.popstats
+popStats -y GT -t 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 --file Stress3.recode.vcf  > Stress3.popstats
+```
+
+Format popstats to BED
+
+```{bash,eval=FALSE}
+bedtools makewindows -g ../reference.fasta.fai -w 10000 | mawk '!/NC_007175.2/' > 10kb.bed
+AWK1='{print $1 "\t" $2-1 "\t" $2 "\t" $3 "\t" $4}'
+ls ./*.popstats | sed 's/.popstats//g' | sed 's:\./::g' | parallel "cut -f1,2,4,5 ./{}.popstats | mawk '$AWK1' > ./{}.het.bed"
+```
+
+Aggregate per 10kb
+
+```{bash,eval=FALSE}
+ls ./*.het.bed | sed 's/.het.bed//g'  |sed 's:\./::g' | parallel "bedtools intersect -b ./{}.het.bed -a ./10kb.bed -wa -wb | bedtools merge -d -1 -c 7,8 -o mean > ./{}.het.per10kb.bed"
+```
+
+The following steps are the same as I did for nucleotide diversity and Tajima's D
+
+```{bash} 
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tEXP_HET\tOBS_HET\tPOP\tGROUP") <(mawk '{if (NR>1)print $0 "\tCON1\tCONTROL"}' Control1.het.per10kb.bed)   <(mawk '{if (NR>1)print $0 "\tCON2\tCONTROL"}' Control2.het.per10kb.bed) <(mawk '{if (NR>1)print $0 "\tCON3\tCONTROL"}' Control3.het.per10kb.bed) > Control.windowed.het
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tEXP_HET\tOBS_HET\tPOP\tGROUP")  <(mawk '{if (NR>1)print $0 "\tHI1\tSTRESS"}' Stress1.het.per10kb.bed)   <(mawk '{if (NR>1)print $0 "\tHI2\tSTRESS"}' Stress2.het.per10kb.bed) <(mawk '{if (NR>1)print $0 "\tHI3\tSTRESS"}' Stress3.het.per10kb.bed) > Stress.windowed.het
+
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tEXP_HET\tOBS_HET\tPOP\tGROUP")   <(mawk '{if (NR>1)print $0 "\tCON1\tCONTROL"}' Control1.het.per10kb.bed)  <(mawk '{if (NR>1)print $0 "\tCON2\tCONTROL"}' Control2.het.per10kb.bed) <(mawk '{if (NR>1)print $0 "\tCON3\tCONTROL"}' Control3.het.per10kb.bed) <(mawk '{if (NR>1)print $0 "\tHI1\tSTRESS"}' Stress1.het.per10kb.bed)   <(mawk '{if (NR>1)print $0 "\tHI2\tSTRESS"}' Stress2.het.per10kb.bed) <(mawk '{if (NR>1)print $0 "\tHI3\tSTRESS"}' Stress3.het.per10kb.bed) > all.windowed.het
+```
+
+```{bash}
+bedtools merge -i <(mawk '!/CHR/' Control.windowed.het| sort -k1,1 -k2,2n ) -c 4,5,7 -d -1 -o mean,mean,first > mean.Control.windowed.het
+bedtools merge -i <(mawk '!/CHR/' Stress.windowed.het | sort -k1,1 -k2,2n ) -c 4,5,7 -d -1 -o mean,mean,first > mean.Stress.windowed.het
+```
+
+```{bash}
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tEXP_HET\tOBS_HET\tGROUP") mean.Control.windowed.het mean.Stress.windowed.het > mean.combined.windowed.het
+```
+
+```{bash}
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tEXP_HET\tOBS_HET\tGROUP") mean.Control.windowed.het > mean.Control.windowed.het.txt
+cat <(echo -e "CHROM\tBIN_START\tBIN_END\tEXP_HET\tOBS_HET\tGROUP") mean.Stress.windowed.het > mean.Stress.windowed.het.txt
+```
+
+```{r}
+prefix.H <- "../heterozygosity/"
+```
+
+```{r}
+filename <- paste(prefix.H,"all.windowed.het", sep="")
+het.all.dataframe<-read.table(filename, sep="\t", header=T)
+summary(het.all.dataframe)
+```
+
+
+```{r}
+het.all.dataframe$GROUP <- factor(het.all.dataframe$GROUP, levels=c("CONTROL", "STRESS"))
+het.all.dataframe$POP <- gsub("^HI", "STR", het.all.dataframe$POP)
+het.all.dataframe$POP <- factor(
+  het.all.dataframe$POP,
+  levels = c("CON1", "CON2", "CON3", "STR1", "STR2", "STR3")
+)
+
+filename <- paste(prefix.H,"mean.combined.windowed.het", sep="")
+het.all.mean.dataframe<-read.table(filename, sep="\t", header=T)
+het.all.mean.dataframe$GROUP <- factor(het.all.mean.dataframe$GROUP, levels=c("CONTROL", "STRESS"))
+summary(het.all.mean.dataframe)
+```
+
+
+Plotting
+
+```{r}
+bd.het <-ggplot(het.all.dataframe, aes(x=OBS_HET,y = POP))+
+  #geom_violin(aes(color=GROUP,fill= GROUP)) +
+  #stat_summary(fun=mean, geom="point", shape=23, size=4)+
+  #geom_dotplot(binaxis='y', stackdir='center', dotsize=0.005)+
+  geom_boxplot(aes(fill=GROUP), width=0.75,outlier.shape = NA, outlier.color = "black")+
+  stat_summary(fun=mean, geom="point", shape=23, size=2)+
+  scale_fill_manual(values=c("#56B4E9", "orange"))+
+  scale_color_manual(values=c("#56B4E9", "orange"))+
+  scale_y_discrete(limits = rev(levels(het.all.dataframe$POP)))+
+  #ylab("Population/Line")+
+  ggtitle("Control vs. Stress Heterozygosity")+
+  coord_cartesian(xlim=c(0,0.5))+
+  theme_classic() +
+  labs(x="Observed Heterozygosity") +theme(axis.title.x = ggtext::element_markdown(),  axis.title.y = element_blank(), plot.title = ggtext::element_markdown()) +
+  theme(legend.position = "none")
+
+
+bd.het <- bd.het + guides(color = "none", fill ="none")
+bd.het
+```
+
+```{r}
+bc.het <-ggplot(het.all.mean.dataframe, aes(x=OBS_HET,y = GROUP))+
+  geom_violin(aes(color=GROUP,fill= GROUP),trim=TRUE) +
+  geom_boxplot(aes(fill=GROUP), width=0.1,outlier.shape = NA, outlier.color = "black")+
+  stat_summary(fun=mean, geom="point", shape=23, size=2)+
+  scale_fill_manual(values=c("#56B4E9", "orange"))+
+  scale_color_manual(values=c("#56B4E9", "orange"))+
+  scale_y_discrete(limits = rev(levels(het.all.dataframe$GROUP)))+
+  #ylab("Origin")+
+  ggtitle("Mean Control vs. Stress Heterozygosity")+
+  theme_classic() +
+  scale_x_continuous(breaks=c(0,0.1,0.2,0.3,0.4,0.5), labels=c("0.0","0.1","0.2","0.3","0.4","0.5*"))+
+  coord_cartesian(xlim=c(0,0.5))+
+  labs(x="Observed Heterozygosity") +
+  theme(legend.position = c(0.1, 0.5), axis.title.y = element_blank(),axis.text.y=element_blank(), plot.title = ggtext::element_markdown(),axis.title.x = ggtext::element_markdown())
+bc.het
+```
+
+t-tests
+
+```{r}
+het.all.mean.dataframe %>% t_test(formula = OBS_HET ~ GROUP, alternative = "two.sided",order = c("CONTROL", "STRESS"))
+```
+
+```{r}
+het.all.mean.dataframe %>% t_test(formula = OBS_HET ~ GROUP, alternative = "greater", order = c("CONTROL", "STRESS"))
+```
+
+Calculating summary statistics
+
+```{r}
+group_by(het.all.mean.dataframe, GROUP) %>%
+  dplyr::summarise(
+    count = n(),
+    mean = mean(OBS_HET, na.rm = TRUE),
+    sd = sd(OBS_HET, na.rm = TRUE),
+    se=std.error(OBS_HET, na.rm = TRUE) )
+```
+
+```{r}
+group_by(het.all.dataframe, POP) %>%
+  dplyr::summarise(
+    count = n(),
+    mean = mean(OBS_HET, na.rm = TRUE),
+    sd = sd(OBS_HET, na.rm = TRUE),
+    se=std.error(OBS_HET, na.rm = TRUE) )
+```
+
+**Plotting heterozygosity across the genome**
+
+```{r}
+filename <- paste(prefix.H,"mean.Control.windowed.het.txt", sep="")
+chet <- read.table(filename, header = TRUE)
+filename <- paste(prefix.H,"mean.Stress.windowed.het.txt", sep="")
+shet <- read.table(filename, header = TRUE)
+
+chet <- chet %>% dplyr::rename(CONTROL_OBS_HET= OBS_HET)
+shet <- shet %>% dplyr::rename(STRESS_OBS_HET= OBS_HET)
+c.s.het <- plyr::join(chet,shet, by =c("CHROM", "BIN_START"),type="full")
+
+
+c.s.het$DIFF <- c.s.het$CONTROL_OBS_HET - c.s.het$STRESS_OBS_HET
+```
+
+```{r}
+SNP<-c(1:(nrow(c.s.het)))
+mydf<-data.frame(SNP,c.s.het)
+mydf$CHR <- mydf$CHROM
+mydf %>% 
+  mutate(CHR = str_replace(CHR, "NC_035780.1", "1")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035781.1", "2")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035782.1", "3")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035783.1", "4")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035784.1", "5")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035785.1", "6")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035786.1", "7")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035787.1", "8")) %>%
+  mutate(CHR = str_replace(CHR, "NC_035788.1", "9")) %>% 
+  mutate(CHR = str_replace(CHR, "NC_035789.1", "10"))  -> mydf
+mydf$CHR <- as.numeric(mydf$CHR)  
+
+m2.het <-ggman::ggman(mydf,chrom="CHR",bp="BIN_START",pvalue="CONTROL_OBS_HET",snp="SNP",logTransform=FALSE,sigLine=NA, relative.positions = TRUE)
+```
+
+```{r}
+dfm <- m2.het[[1]]
+dfm$chrom_alt <- factor(dfm$chrom_alt, levels=c(0,1))
+
+dfmsplit <- split(dfm, dfm$chrom)
+xbreaks <- sapply(dfmsplit,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+m2.total <- ggplot(dfm, aes(x= index, y=marker, colour = as.factor(chrom_alt)))+
+  geom_point(size=0.5, aes(alpha=0.33))+  
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm$index)+10)) +
+  guides(colour = "none",alpha="none") +
+  scale_y_continuous(expand = c(0,0),limits=c(min(dfm$marker-0.001,na.rm=TRUE),0.9))+
+  labs(x = "Chromosome") +
+  ggtitle("Control Treatment") +theme_classic()+
+  labs(y="Observed Heterozygosity") +theme(axis.title.y = ggtext::element_markdown())+ 
+  scale_color_manual(values=c("#56B4E9","dark blue")) 
+m2.het <- m2.total
+
+m2.het
+```
+
+```{r}
+m3.het <-ggman::ggman(mydf,chrom="CHR",bp="BIN_START",pvalue="STRESS_OBS_HET",snp="SNP",logTransform=FALSE,sigLine=NA, ymax=1, relative.positions = TRUE)
+```
+
+```{r}
+dfm <- m3.het[[1]]
+dfm$chrom_alt <- factor(dfm$chrom_alt, levels=c(0,1))
+
+dfmsplit <- split(dfm, dfm$chrom)
+xbreaks <- sapply(dfmsplit,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+m3.total <- ggplot(dfm, aes(x= index, y=marker, colour = as.factor(chrom_alt)))+
+  geom_point(size=0.5, aes(alpha=0.33))+  
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm$index)+10)) +
+  guides(colour = "none",alpha="none") +
+  scale_y_continuous(expand = c(0,0),limits=c(min(dfm$marker-0.001,na.rm=TRUE),0.9))+
+  #scale_alpha_continuous(range=c(0.1,0.95))+
+  labs(x = "Chromosome") +
+  ggtitle("Stress Treatment") +theme_classic()+
+  labs(y="Observed Heterozygosity") +theme(axis.title.y = ggtext::element_markdown())+ 
+  scale_color_manual(values=c("orange", "#D55E00"))
+
+m3.het <- m3.total
+
+m3.het
+```
+
+```{r}
+md4.het <-ggman::ggman(mydf,chrom="CHR",bp="BIN_START",pvalue="DIFF",snp="SNP",logTransform=FALSE,sigLine=NA, relative.positions = TRUE)
+```
+
+```{r}
+dfm <- md4.het[[1]]
+dfm$chrom_alt <- factor(dfm$chrom_alt, levels=c(0,1))
+
+dfmsplit <- split(dfm, dfm$chrom)
+xbreaks <- sapply(dfmsplit,function(x) {
+    midpoint <- length(x$index)/2
+    if(midpoint <1) midpoint <- 1
+    return(x$index[midpoint])
+})
+
+md4.het <- ggplot(dfm, aes(x= index, y=marker, colour = as.factor(chrom_alt),size=(0.1+ abs(marker))^2))+
+  geom_point(alpha=0.85)+  
+  scale_size_continuous(range=c(0.01,1.5))+
+  scale_x_continuous(breaks = xbreaks, labels = names(xbreaks),expand = c(0,0),limits = c(0,max(dfm$index)+10)) +
+  guides(colour = "none",alpha="none",size="none") +
+  scale_y_continuous(expand = c(0,0),limits=c(-0.4,0.4))+
+  #scale_alpha_continuous(range=c(0.1,0.95))+
+  labs(x = "Chromosome") +
+  ggtitle("Control - Stress") +theme_classic()+
+  labs(y="Difference in Observed Heterozygosity") +theme(axis.title.y = ggtext::element_markdown())+ 
+  scale_color_manual(values=c("#009E73", "#00543d"))
+
+md4.het
+```
+
+```{r}
+png(filename=paste(prefix.H,"Figure.Heterozygosity.Comparison.Con.Str.png", sep=""), type="cairo",units="px", width=5600, height=3000, res=300, bg="transparent")
+layout <- "
+AAADD
+BBBDD
+CCCEE
+CCCEE
+"
+m2.het+m3.het+md4.het+bd.het+bc.het + patchwork::plot_layout(design=layout, guides = "collect") + patchwork::plot_annotation(tag_levels = 'A')
+```
+
+### Putting all violin plots together
+
+```{r}
+library(patchwork)
+```
+
+```{r}
+# Remove legends from all but one plot
+bc.het <- bc.het + theme(legend.position = "none")
+bc.taj <- bc.taj + theme(legend.position = "none")
+
+# Stack, collect legend, and add subplot labels
+combined_plot <- bc.pi / bc.het / bc.taj +
+  plot_layout(guides = "collect") &
+  theme(legend.position = "right")
+
+combined_plot <- combined_plot + plot_annotation(tag_levels = 'A')
+
+# Show or save
+print(combined_plot)
+ggsave("geneticdiversity_combined_comparisonplot.png", combined_plot, width=8, height=12)
+```
